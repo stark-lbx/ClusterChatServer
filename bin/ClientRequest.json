@@ -11,6 +11,9 @@
 "单发消息" :
     {"msgType": 5, "userid": 1, "username": "stark", "to": 2, "content": "xxxx"},
 
+"添加好友" :
+    {"msgType": 6, "userid": 1, "friendid": 2},
+
 
 "无效请求" :{"desc":"这个文档是使用telnet连接服务器，使用json字符串快速发送请求的模拟文档"}
 }

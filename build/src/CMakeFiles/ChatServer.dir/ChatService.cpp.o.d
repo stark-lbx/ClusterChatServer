@@ -325,6 +325,8 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/c++/11/bits/unique_lock.h \
  /home/stark/ClusterChatServer/include/muduo/base/Logging.h \
  /home/stark/ClusterChatServer/include/muduo/base/LogStream.h \
- /home/stark/ClusterChatServer/include/Common.hxx \
+ /home/stark/ClusterChatServer/include/Common.h \
  /home/stark/ClusterChatServer/include/UserModel.hxx \
- /home/stark/ClusterChatServer/include/OfflineMsgModel.hxx
+ /home/stark/ClusterChatServer/include/OfflineMsgModel.hxx \
+ /home/stark/ClusterChatServer/include/FriendModel.hxx \
+ /home/stark/ClusterChatServer/include/UserModel.hxx

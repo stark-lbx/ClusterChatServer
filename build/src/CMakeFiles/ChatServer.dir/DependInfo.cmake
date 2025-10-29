@@ -11,8 +11,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/stark/ClusterChatServer/src/Application.cc" "src/CMakeFiles/ChatServer.dir/Application.cc.o" "gcc" "src/CMakeFiles/ChatServer.dir/Application.cc.o.d"
   "/home/stark/ClusterChatServer/src/ChatServer.cpp" "src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o" "gcc" "src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o.d"
   "/home/stark/ClusterChatServer/src/ChatService.cpp" "src/CMakeFiles/ChatServer.dir/ChatService.cpp.o" "gcc" "src/CMakeFiles/ChatServer.dir/ChatService.cpp.o.d"
-  "/home/stark/ClusterChatServer/src/OfflineMsgModel.cc" "src/CMakeFiles/ChatServer.dir/OfflineMsgModel.cc.o" "gcc" "src/CMakeFiles/ChatServer.dir/OfflineMsgModel.cc.o.d"
-  "/home/stark/ClusterChatServer/src/UserModel.cc" "src/CMakeFiles/ChatServer.dir/UserModel.cc.o" "gcc" "src/CMakeFiles/ChatServer.dir/UserModel.cc.o.d"
+  "/home/stark/ClusterChatServer/src/FriendModel.cxx" "src/CMakeFiles/ChatServer.dir/FriendModel.cxx.o" "gcc" "src/CMakeFiles/ChatServer.dir/FriendModel.cxx.o.d"
+  "/home/stark/ClusterChatServer/src/OfflineMsgModel.cxx" "src/CMakeFiles/ChatServer.dir/OfflineMsgModel.cxx.o" "gcc" "src/CMakeFiles/ChatServer.dir/OfflineMsgModel.cxx.o.d"
+  "/home/stark/ClusterChatServer/src/UserModel.cxx" "src/CMakeFiles/ChatServer.dir/UserModel.cxx.o" "gcc" "src/CMakeFiles/ChatServer.dir/UserModel.cxx.o.d"
   )
 
 # Targets to which this target links.

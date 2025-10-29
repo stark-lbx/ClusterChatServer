@@ -17,6 +17,7 @@ namespace model
 
     class UserModel;
     class OfflineMsgModel;
+    class FriendModel;
 }
 
 namespace service
@@ -40,6 +41,9 @@ public:
     void regist(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
 
     void singleChat(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
+
+    void addFriend(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
+
 private:
     ChatService();
     
@@ -57,6 +61,7 @@ private:
     // 数据操作对象
     std::unique_ptr<model::UserModel> userModel_;
     std::unique_ptr<model::OfflineMsgModel> offlineMsgModel_;
+    std::unique_ptr<model::FriendModel> friendModel_;
 };
 
 } // namespace service

@@ -1,11 +1,13 @@
 // clang-format off
 #include "ChatService.hpp"
 #include "muduo/base/Logging.h"
-#include "Common.hxx"
+#include "Common.h"
 #include "UserModel.hxx"
 #include "OfflineMsgModel.hxx"
+#include "FriendModel.hxx"
 
 #include <optional>
+#include <map>
 
 chat::service::ChatService* chat::service::ChatService::instance()
 {
@@ -16,14 +18,17 @@ chat::service::ChatService* chat::service::ChatService::instance()
 chat::service::ChatService::ChatService()
 {
     // 注册对应的消息类型的回调函数
-    msgHandlerMap_[EnMsgType::OFFLINE_MSG]      = std::bind(&ChatService::offline, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-    msgHandlerMap_[EnMsgType::LOGIN_MSG_REQ]    = std::bind(&ChatService::login, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-    msgHandlerMap_[EnMsgType::REGIST_MSG_REQ]   = std::bind(&ChatService::regist, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-    msgHandlerMap_[EnMsgType::SINGLE_CHAT_MSG]  = std::bind(&ChatService::singleChat, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+    msgHandlerMap_[EnMsgType::OFFLINE_REQ]      = std::bind(&ChatService::offline,      this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+    msgHandlerMap_[EnMsgType::LOGIN_REQ]        = std::bind(&ChatService::login,        this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+    msgHandlerMap_[EnMsgType::REGIST_REQ]       = std::bind(&ChatService::regist,       this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+    msgHandlerMap_[EnMsgType::SINGLE_CHAT_MSG]  = std::bind(&ChatService::singleChat,   this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+    msgHandlerMap_[EnMsgType::ADD_FRIEND_REQ]   = std::bind(&ChatService::addFriend,    this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+
 
     // TODO: 或者将 Model_ 设计为 工具类？
     userModel_          = std::make_unique<chat::model::UserModel>();
     offlineMsgModel_    = std::make_unique<chat::model::OfflineMsgModel>();
+    friendModel_        = std::make_unique<chat::model::FriendModel>();
 }
 
 chat::service::MsgHandler chat::service::ChatService::getHandler(int msgType)
@@ -57,7 +62,7 @@ void chat::service::ChatService::login(const muduo::net::TcpConnectionPtr & conn
     std::unique_ptr<chat::User> user = userModel_->query(userid);
 
     nlohmann::json response;   
-    response["msgType"] = LOGIN_MSG_RES;
+    response["msgType"] = LOGIN_RES;
     if(user != nullptr && user->password() == password)
     {
         if(user->state() == "online")
@@ -87,8 +92,27 @@ void chat::service::ChatService::login(const muduo::net::TcpConnectionPtr & conn
 
             // 登录成功 - 处理离线消息
             std::vector<std::string> messages = offlineMsgModel_->query(userid);
-            response["offlinemsglist"] = messages;
-            offlineMsgModel_->remove(userid);
+            if(!messages.empty()){
+                response["offlinemsglist"] = messages;
+                offlineMsgModel_->remove(userid);
+            }
+
+            // 登录成功 - 获取好友列表
+            std::vector<chat::User> friends = friendModel_->query(userid);
+            if(!friends.empty()){
+                std::vector<std::string> friends_js;
+
+                for(const auto& f: friends)
+                {
+                    nlohmann::json js;
+                    js["userid"] = f.userid();
+                    js["username"] = f.username();
+                    js["state"] = f.state();
+                    friends_js.emplace_back(js.dump());
+                }
+
+                response["friendlist"] = friends_js;
+            }
         }
     }
     else
@@ -112,7 +136,7 @@ void chat::service::ChatService::regist(const muduo::net::TcpConnectionPtr & con
     bool isok = userModel_->insert(user);
 
     nlohmann::json response;    
-    response["msgType"] = REGIST_MSG_RES;
+    response["msgType"] = REGIST_RES;
     if(isok)
     {
         // 注册成功
@@ -177,4 +201,32 @@ void chat::service::ChatService::singleChat(const muduo::net::TcpConnectionPtr &
     }
     // toid 不在线、存储离线消息
     offlineMsgModel_->insert(toid, js.dump());
+}
+
+void chat::service::ChatService::addFriend(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
+{
+    int userid = js["userid"].get<int>();
+    int friendid   = js["friendid"].get<int>();
+
+    nlohmann::json response;
+    response["msgType"] = ADD_FRIEND_RES;
+    if(!userModel_->query(friendid))
+    {
+        response["errno"] = 1;
+        response["errmsg"] = "user not exists!";
+    }
+    else
+    {
+        if(!friendModel_->insert(userid, friendid))
+        {
+            response["errno"] = 2;
+            response["errmsg"] = "sql insert error!";
+        }
+        else 
+        {
+            response["errno"] = 0;
+            response["errmsg"] = "";
+        }
+    }
+    conn->send(response.dump());
 }
