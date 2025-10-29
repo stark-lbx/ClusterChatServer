@@ -1,0 +1,16 @@
+{
+"离线请求" : 
+    {"msgType": 0, "userid": 1},
+
+"登录请求" :
+    {"msgType": 1, "userid": 1, "password": "123456"},
+
+"注册请求" : 
+    {"msgType": 3, "username": "stark1", "password": "123456"},
+
+"单发消息" :
+    {"msgType": 5, "userid": 1, "username": "stark", "to": 2, "content": "xxxx"},
+
+
+"无效请求" :{"desc":"这个文档是使用telnet连接服务器，使用json字符串快速发送请求的模拟文档"}
+}

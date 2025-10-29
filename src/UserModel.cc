@@ -7,7 +7,7 @@ bool chat::model::UserModel::insert(User &user)
 {
     // 1. 组装sql语句
     char sql[1024] = {0};
-    sprintf(sql, "insert into User(username, password, state) value('%s', '%s', '%s')",
+    sprintf(sql, "insert into User(username, password, state) values('%s', '%s', '%s')",
         user.username().c_str(), user.password().c_str(), user.state().c_str());
 
     chat::db::MySQL mysql;
@@ -68,4 +68,17 @@ std::unique_ptr<chat::User> chat::model::UserModel::query(int id)
         }
     }
     return nullptr;
+}
+
+void chat::model::UserModel::offlineAll()
+{
+    // 1. 组装sql语句
+    char sql[1024] = {0};
+    sprintf(sql, "update User set state = 'offline' where state = 'online'");
+
+    chat::db::MySQL mysql;
+    if(mysql.connect())
+    {
+        mysql.update(sql);
+    }
 }

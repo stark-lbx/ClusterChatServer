@@ -34,6 +34,8 @@ void chat::ChatServer::onConnection(const muduo::net::TcpConnectionPtr &conn)
     // 客户端断开连接
     if(!conn->connected())
     {
+        nlohmann::json _; // 占位的json
+        chat::service::ChatService::instance()->offline(conn, _, muduo::Timestamp::now());
         conn->shutdown(); // muduo日志库会打印的
     }
 }

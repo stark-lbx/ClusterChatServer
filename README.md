@@ -103,8 +103,8 @@ GroupUser表：描述一个用户在哪个群组内，扮演着怎样的角色
     grouprole   enum("c","n")   群内角色            默认 = "normal"         
 
 OfflineMessage表：存储离线消息
-    msgid       int         消息id              自增主键
-    <!-- userid      int         接收用户的id        联合主键 --> 在json格式中（即用户协议）就涵盖了消息的发送方、接收方
+    <!-- msgid       int         消息id              自增主键 -->
+    userid      int         接收用户的id        联合主键  <!-- 在json格式中（即用户协议）就涵盖了消息的发送方、接收方 | 不行、不方便查询-->
     message     varchar()   离线消息             非空
 
 
@@ -141,8 +141,10 @@ create table GroupUser(
 );
 
 create table OfflineMessage(
-    msgid int auto_increment primary key,
-    message varchar(1024) not null
+    userid int,
+    message varchar(1024) not null,
+
+    foreign key (userid) references User(userid)
 );
 
 ```

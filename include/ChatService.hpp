@@ -7,10 +7,17 @@
 #include <unordered_map>
 #include <functional>
 #include <memory>
+#include <mutex>
 
 namespace chat
 {
-namespace model{class UserModel;}
+namespace model
+{
+    // 前置声明
+
+    class UserModel;
+    class OfflineMsgModel;
+}
 
 namespace service
 {
@@ -25,11 +32,14 @@ class ChatService
 {
 public:
     static ChatService* instance();
+    MsgHandler getHandler(int msgType);
+    void reset();
 
+    void offline(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time);
     void login(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
     void regist(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
 
-    MsgHandler getHandler(int msgType);
+    void singleChat(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
 private:
     ChatService();
     
@@ -40,8 +50,13 @@ private:
     // 消息类型 和 其对应的业务处理方法
     std::unordered_map<int, MsgHandler> msgHandlerMap_;
 
+    // 存储在线用户的通信连接
+    std::unordered_map<int, muduo::net::TcpConnectionPtr> userConnMap_;
+    std::mutex userConnMapMutex_;
+
     // 数据操作对象
-    std::unique_ptr<chat::model::UserModel> userModel_;
+    std::unique_ptr<model::UserModel> userModel_;
+    std::unique_ptr<model::OfflineMsgModel> offlineMsgModel_;
 };
 
 } // namespace service

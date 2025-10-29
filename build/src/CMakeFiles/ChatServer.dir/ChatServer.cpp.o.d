@@ -335,4 +335,6 @@ src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: \
  /usr/include/c++/11/pstl/glue_numeric_defs.h /usr/include/c++/11/any \
  /home/stark/ClusterChatServer/include/ChatService.hpp \
  /home/stark/ClusterChatServer/include/muduo/net/TcpConnection.h \
- /home/stark/ClusterChatServer/include/json/json.hpp
+ /home/stark/ClusterChatServer/include/json/json.hpp \
+ /usr/include/c++/11/mutex /usr/include/c++/11/bits/std_mutex.h \
+ /usr/include/c++/11/bits/unique_lock.h

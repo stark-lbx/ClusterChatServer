@@ -2,6 +2,7 @@ add_executable(ChatServer
     ChatServer.cpp
     ChatService.cpp
     UserModel.cc 
+    OfflineMsgModel.cc
     Application.cc
 )
 

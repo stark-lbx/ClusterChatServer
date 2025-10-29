@@ -1,6 +1,6 @@
 // clang-format off
-#ifndef USER_H
-#define USER_H
+#ifndef USERMODEL_H
+#define USERMODEL_H
 
 #include <string>
 #include <memory>
@@ -45,10 +45,12 @@ public:
     bool update(const User& user);
     // 根据id查询用户
     std::unique_ptr<User> query(int id);
+
+    void offlineAll();
 };
 
 } // namespace model
 } // namespace chat
 
 
-#endif
+#endif // USERMODEL_H

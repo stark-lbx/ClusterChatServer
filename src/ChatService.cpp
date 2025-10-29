@@ -3,7 +3,9 @@
 #include "muduo/base/Logging.h"
 #include "Common.hxx"
 #include "UserModel.hxx"
+#include "OfflineMsgModel.hxx"
 
+#include <optional>
 
 chat::service::ChatService* chat::service::ChatService::instance()
 {
@@ -14,8 +16,14 @@ chat::service::ChatService* chat::service::ChatService::instance()
 chat::service::ChatService::ChatService()
 {
     // 注册对应的消息类型的回调函数
+    msgHandlerMap_[EnMsgType::OFFLINE_MSG]      = std::bind(&ChatService::offline, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
     msgHandlerMap_[EnMsgType::LOGIN_MSG_REQ]    = std::bind(&ChatService::login, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
     msgHandlerMap_[EnMsgType::REGIST_MSG_REQ]   = std::bind(&ChatService::regist, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+    msgHandlerMap_[EnMsgType::SINGLE_CHAT_MSG]  = std::bind(&ChatService::singleChat, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+
+    // TODO: 或者将 Model_ 设计为 工具类？
+    userModel_          = std::make_unique<chat::model::UserModel>();
+    offlineMsgModel_    = std::make_unique<chat::model::OfflineMsgModel>();
 }
 
 chat::service::MsgHandler chat::service::ChatService::getHandler(int msgType)
@@ -31,6 +39,12 @@ chat::service::MsgHandler chat::service::ChatService::getHandler(int msgType)
         };
     }
     return handlerIter->second;
+}
+
+void chat::service::ChatService::reset()
+{
+    // 把所有online的用户设置为offline
+    userModel_->offlineAll();
 }
 
 void chat::service::ChatService::login(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
@@ -54,15 +68,27 @@ void chat::service::ChatService::login(const muduo::net::TcpConnectionPtr & conn
         }
         else
         {
+            // 登录成功 - 维护这个用户的连接
+            {
+                std::lock_guard<std::mutex> lock(userConnMapMutex_);
+                userConnMap_[user->userid()] = conn;
+            }
+
             // 登录成功 - 更新用户状态信息
             user->setState("online");
             userModel_->update(*user);
 
+            // 登录成功 - 返回响应
             response["errno"] = 0;
             response["errmsg"] = "";
             response["userid"] = user->userid();
             response["username"] = user->username();
             // response["loginSessionId"] = createUuid();
+
+            // 登录成功 - 处理离线消息
+            std::vector<std::string> messages = offlineMsgModel_->query(userid);
+            response["offlinemsglist"] = messages;
+            offlineMsgModel_->remove(userid);
         }
     }
     else
@@ -101,4 +127,54 @@ void chat::service::ChatService::regist(const muduo::net::TcpConnectionPtr & con
         response["errmsg"] = "sql insert error";
     }
     conn->send(response.dump());
+}
+
+void chat::service::ChatService::offline(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
+{
+    // 为了兼顾异常退出、正常下线，这里不使用js、只是用conn来找到对应的userid
+    std::optional<int> userid;
+    if(js.contains("userid"))
+    {
+        userid = js["userid"].get<int>();
+    }
+    else 
+    {
+        std::lock_guard<std::mutex> lock(userConnMapMutex_);
+        for(const auto&[u, c] : userConnMap_)
+        {
+            if(c == conn){
+                userid = u;
+                break;
+            }
+        }
+    }   
+
+    if(userid.has_value())
+    {
+        std::unique_ptr<chat::User> user = userModel_->query(userid.value());
+        if(user != nullptr)
+        {
+            user->setState("offline");
+            userModel_->update(*user);
+        }
+    }
+}
+
+void chat::service::ChatService::singleChat(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
+{
+    int toid = js["to"].get<int>();
+
+    std::unordered_map<int, muduo::net::TcpConnectionPtr>::iterator iter;
+    {
+        std::lock_guard<std::mutex> lock(userConnMapMutex_);
+        iter = userConnMap_.find(toid);
+        if (iter != userConnMap_.end())
+        {
+            // toid 在线、直接转发消息
+            iter->second->send(js.dump()); // 是那个连接向对应的客户端发的，不是向那个连接发的
+            return;
+        }
+    }
+    // toid 不在线、存储离线消息
+    offlineMsgModel_->insert(toid, js.dump());
 }
