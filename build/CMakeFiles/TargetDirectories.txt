@@ -1,0 +1,5 @@
+/home/stark/ClusterChatServer/build/CMakeFiles/edit_cache.dir
+/home/stark/ClusterChatServer/build/CMakeFiles/rebuild_cache.dir
+/home/stark/ClusterChatServer/build/src/CMakeFiles/ChatServer.dir
+/home/stark/ClusterChatServer/build/src/CMakeFiles/edit_cache.dir
+/home/stark/ClusterChatServer/build/src/CMakeFiles/rebuild_cache.dir

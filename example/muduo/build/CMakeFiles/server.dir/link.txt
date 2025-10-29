@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -rdynamic CMakeFiles/server.dir/mserver.cc.o -o server   -L/usr/local/lib/muduo  -Wl,-rpath,/usr/local/lib/muduo -lmuduo_net -lmuduo_base -lpthread 

@@ -1,0 +1,3 @@
+/home/stark/ClusterChatServer/thrid/muduo/build/CMakeFiles/server.dir
+/home/stark/ClusterChatServer/thrid/muduo/build/CMakeFiles/edit_cache.dir
+/home/stark/ClusterChatServer/thrid/muduo/build/CMakeFiles/rebuild_cache.dir
