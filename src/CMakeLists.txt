@@ -1,7 +1,8 @@
 add_executable(ChatServer
-    UserModel.cxx
-    OfflineMsgModel.cxx
-    FriendModel.cxx
+    model/UserModel.cxx
+    model/OfflineMsgModel.cxx
+    model/FriendModel.cxx
+    model/GroupModel.cxx
     ChatService.cpp
     ChatServer.cpp
     Application.cc
@@ -9,7 +10,7 @@ add_executable(ChatServer
 
 target_include_directories(ChatServer PRIVATE 
     ${PROJECT_SOURCE_DIR}/include
-#   ${PROJECT_SOURCE_DIR}/include/third
+    ${PROJECT_SOURCE_DIR}/include/model
 )
 
 target_link_directories(ChatServer PRIVATE 

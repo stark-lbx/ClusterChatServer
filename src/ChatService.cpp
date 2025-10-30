@@ -1,10 +1,13 @@
 // clang-format off
 #include "ChatService.hpp"
-#include "muduo/base/Logging.h"
-#include "Common.h"
+
 #include "UserModel.hxx"
 #include "OfflineMsgModel.hxx"
 #include "FriendModel.hxx"
+#include "GroupModel.hxx"
+
+#include "muduo/base/Logging.h"
+#include "Common.h"
 
 #include <optional>
 #include <map>
@@ -23,12 +26,14 @@ chat::service::ChatService::ChatService()
     msgHandlerMap_[EnMsgType::REGIST_REQ]       = std::bind(&ChatService::regist,       this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
     msgHandlerMap_[EnMsgType::SINGLE_CHAT_MSG]  = std::bind(&ChatService::singleChat,   this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
     msgHandlerMap_[EnMsgType::ADD_FRIEND_REQ]   = std::bind(&ChatService::addFriend,    this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-
+    msgHandlerMap_[EnMsgType::CRET_GROUP_REQ]   = std::bind(&ChatService::createGroup,  this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+    msgHandlerMap_[EnMsgType::JOIN_GROUP_REQ]   = std::bind(&ChatService::joinGroup,    this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
 
     // TODO: 或者将 Model_ 设计为 工具类？
     userModel_          = std::make_unique<chat::model::UserModel>();
     offlineMsgModel_    = std::make_unique<chat::model::OfflineMsgModel>();
     friendModel_        = std::make_unique<chat::model::FriendModel>();
+    groupModel_         = std::make_unique<chat::model::GroupModel>();
 }
 
 chat::service::MsgHandler chat::service::ChatService::getHandler(int msgType)
@@ -52,13 +57,14 @@ void chat::service::ChatService::reset()
     userModel_->offlineAll();
 }
 
+// 登录时，用户输入账户密码
 void chat::service::ChatService::login(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
 {
-    // 登录时，用户输入账户密码
-
+    // 1.解析请求
     int userid = js["userid"].get<int>();
     std::string password = js["password"];
 
+    // 2.业务处理 - 并构造响应
     std::unique_ptr<chat::User> user = userModel_->query(userid);
 
     nlohmann::json response;   
@@ -68,7 +74,7 @@ void chat::service::ChatService::login(const muduo::net::TcpConnectionPtr & conn
         if(user->state() == "online")
         {
             // 用户已经登录，不允许重复登录
-            response["errno"] = 1;
+            response["errno"] = ERR_REPEAT;
             response["errmsg"] = "user state is online, can't to login again";
         }
         else
@@ -84,7 +90,7 @@ void chat::service::ChatService::login(const muduo::net::TcpConnectionPtr & conn
             userModel_->update(*user);
 
             // 登录成功 - 返回响应
-            response["errno"] = 0;
+            response["errno"] = SUCCESS;
             response["errmsg"] = "";
             response["userid"] = user->userid();
             response["username"] = user->username();
@@ -118,44 +124,61 @@ void chat::service::ChatService::login(const muduo::net::TcpConnectionPtr & conn
     else
     {
         // 登录失败 - 用户名或密码错误
-        response["errno"] = 2;
+        response["errno"] = ERR_NOT_MATCH;
         response["errmsg"] = "username or password no match";
     }
+    
+    // 3.发送响应
     conn->send(response.dump());
 }
 
+// 注册时，接收name、password
 void chat::service::ChatService::regist(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
 {
-    // 注册只需要填name、password
+    // 1. 解析请求   
     std::string username = js["username"];
     std::string password = js["password"];
 
+    // 2. 业务处理
     User user;
     user.setUsername(username);
     user.setPassword(password);
-    bool isok = userModel_->insert(user);
+    bool isexisted = (userModel_->query(username) != nullptr);
+    bool isok = isexisted? false : userModel_->insert(user);
 
+    // 3. 构造响应
     nlohmann::json response;    
     response["msgType"] = REGIST_RES;
-    if(isok)
+    if(!isexisted)
     {
-        // 注册成功
-        response["errno"] = 0;
-        response["errmsg"] = "";
-        response["userid"] = user.userid();
+        if(isok)
+        {
+            // 注册成功
+            response["errno"] = SUCCESS;
+            response["errmsg"] = "";
+            response["userid"] = user.userid();            
+        }
+        else 
+        {
+            // 注册失败
+            response["errno"] = ERR_SERVICE;
+            response["errmsg"] = "sql insert error";
+        }
     }
     else
     {
         // 注册失败
-        response["errno"] = 1;
-        response["errmsg"] = "sql insert error";
+        response["errno"] = ERR_REPEAT;
+        response["errmsg"] = "user has existed";
     }
+
+    // 4. 发送响应
     conn->send(response.dump());
 }
 
+// 为了兼顾异常退出、正常下线，这里不使用js、只是用conn来找到对应的userid
 void chat::service::ChatService::offline(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
 {
-    // 为了兼顾异常退出、正常下线，这里不使用js、只是用conn来找到对应的userid
     std::optional<int> userid;
     if(js.contains("userid"))
     {
@@ -184,6 +207,113 @@ void chat::service::ChatService::offline(const muduo::net::TcpConnectionPtr & co
     }
 }
 
+void chat::service::ChatService::addFriend(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
+{
+    // 1. 解析请求
+    int userid = js["userid"].get<int>();
+    int friendid   = js["friendid"].get<int>();
+
+    // 2. 业务处理
+    bool isfindok = userModel_->query(friendid) != nullptr;
+    bool isaddok = isfindok? friendModel_->insert(userid, friendid) : isfindok;
+
+    // 3. 构造响应
+    nlohmann::json response;
+    response["msgType"] = ADD_FRIEND_RES;
+    if(isfindok)
+    {
+        if(isaddok)
+        {
+            response["errno"] = SUCCESS;
+            response["errmsg"] = "";
+        }
+        else 
+        {
+            response["errno"] = ERR_SERVICE;
+            response["errmsg"] = "sql insert error!";            
+        }
+    }
+    else
+    {
+        response["errno"] = ERR_NOT_EXIST;
+        response["errmsg"] = "user not exists!";
+    }
+
+    // 4. 发送响应
+    conn->send(response.dump());
+}
+
+// 创建群组业务
+void chat::service::ChatService::createGroup(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
+{
+    // 1.解析请求
+    int userid = js["userid"].get<int>();
+    std::string groupname = js["groupname"];
+    std::string description = js["description"];
+
+    // 2.业务处理
+    Group group;
+    group.setGroupname(groupname);
+    group.setDescription(description);
+    bool iscreated = groupModel_->create(group);
+    bool isjoined = iscreated ? groupModel_->join(userid, group.groupid(), "creator") : iscreated;
+
+    // 3.构造响应
+    nlohmann::json response;
+    response["msgType"] = CRET_GROUP_RES;
+    if(iscreated)
+    {
+        if(isjoined){
+            // 创建并加入成功
+            response["errno"] = SUCCESS;
+            response["errmsg"] = "";
+            response["groupid"] = group.groupid();
+        }
+        else
+        {
+            response["errno"] = ERR_SERVICE;
+            response["errmsg"] = "join error!";
+        }
+    }
+    else
+    {
+        response["errno"] = ERR_SERVICE;
+        response["errmsg"] = "create error!";
+    }
+    
+    // 4.发送响应
+    conn->send(response.dump());
+}
+
+// 加入群组业务
+void chat::service::ChatService::joinGroup(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
+{
+    // 1. 解析请求
+    int userid = js["userid"].get<int>();
+    int groupid = js["groupid"].get<int>();
+
+    // 2. 业务处理
+    bool isjoined = groupModel_->join(userid, groupid, "normal");
+
+    // 3. 构造响应
+    nlohmann::json response;
+    response["msgType"] = JOIN_GROUP_RES;
+    if(isjoined)
+    {
+        response["errno"] = SUCCESS;
+        response["errmsg"] = "";
+    }
+    else 
+    {
+        response["errno"] = ERR_SERVICE;
+        response["errmsg"] = "join group error(maybe group not existed)";
+    }
+
+    // 4. 发送响应
+    conn->send(response.dump());
+}
+
+
 void chat::service::ChatService::singleChat(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
 {
     int toid = js["to"].get<int>();
@@ -203,30 +333,24 @@ void chat::service::ChatService::singleChat(const muduo::net::TcpConnectionPtr &
     offlineMsgModel_->insert(toid, js.dump());
 }
 
-void chat::service::ChatService::addFriend(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
+void chat::service::ChatService::groupChat(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
 {
     int userid = js["userid"].get<int>();
-    int friendid   = js["friendid"].get<int>();
+    int groupid = js["groupid"].get<int>();
 
-    nlohmann::json response;
-    response["msgType"] = ADD_FRIEND_RES;
-    if(!userModel_->query(friendid))
+    std::vector<int> membersIdVec = groupModel_->query(userid, groupid);
+    for(int id : membersIdVec)
     {
-        response["errno"] = 1;
-        response["errmsg"] = "user not exists!";
-    }
-    else
-    {
-        if(!friendModel_->insert(userid, friendid))
         {
-            response["errno"] = 2;
-            response["errmsg"] = "sql insert error!";
+            std::lock_guard<std::mutex> lock(userConnMapMutex_);
+            auto it = userConnMap_.find(id); // 找id对应的连接
+            if(it != userConnMap_.end())
+            {
+                it->second->send(js.dump());
+                continue;
+            }
         }
-        else 
-        {
-            response["errno"] = 0;
-            response["errmsg"] = "";
-        }
+        // 插入时可以不被锁锁着、与连接映射表无关了
+        offlineMsgModel_->insert(id, js.dump());
     }
-    conn->send(response.dump());
 }

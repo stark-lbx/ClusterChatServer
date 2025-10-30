@@ -18,6 +18,7 @@ namespace model
     class UserModel;
     class OfflineMsgModel;
     class FriendModel;
+    class GroupModel;
 }
 
 namespace service
@@ -40,9 +41,15 @@ public:
     void login(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
     void regist(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
 
-    void singleChat(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
-
     void addFriend(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
+
+    void createGroup(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
+
+    void joinGroup(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
+
+    void singleChat(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
+    void groupChat(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
+
 
 private:
     ChatService();
@@ -62,6 +69,7 @@ private:
     std::unique_ptr<model::UserModel> userModel_;
     std::unique_ptr<model::OfflineMsgModel> offlineMsgModel_;
     std::unique_ptr<model::FriendModel> friendModel_;
+    std::unique_ptr<model::GroupModel> groupModel_;
 };
 
 } // namespace service

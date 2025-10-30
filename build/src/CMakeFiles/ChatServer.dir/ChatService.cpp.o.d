@@ -323,10 +323,11 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/c++/11/pstl/glue_numeric_defs.h /usr/include/c++/11/any \
  /usr/include/c++/11/mutex /usr/include/c++/11/bits/std_mutex.h \
  /usr/include/c++/11/bits/unique_lock.h \
+ /home/stark/ClusterChatServer/include/model/UserModel.hxx \
+ /home/stark/ClusterChatServer/include/model/OfflineMsgModel.hxx \
+ /home/stark/ClusterChatServer/include/model/FriendModel.hxx \
+ /home/stark/ClusterChatServer/include/model/UserModel.hxx \
+ /home/stark/ClusterChatServer/include/model/GroupModel.hxx \
  /home/stark/ClusterChatServer/include/muduo/base/Logging.h \
  /home/stark/ClusterChatServer/include/muduo/base/LogStream.h \
- /home/stark/ClusterChatServer/include/Common.h \
- /home/stark/ClusterChatServer/include/UserModel.hxx \
- /home/stark/ClusterChatServer/include/OfflineMsgModel.hxx \
- /home/stark/ClusterChatServer/include/FriendModel.hxx \
- /home/stark/ClusterChatServer/include/UserModel.hxx
+ /home/stark/ClusterChatServer/include/Common.h

@@ -202,77 +202,101 @@ ChatService.cpp.s:
 	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/ChatService.cpp.s
 .PHONY : ChatService.cpp.s
 
-FriendModel.o: FriendModel.cxx.o
-.PHONY : FriendModel.o
+model/FriendModel.o: model/FriendModel.cxx.o
+.PHONY : model/FriendModel.o
 
 # target to build an object file
-FriendModel.cxx.o:
-	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/FriendModel.cxx.o
-.PHONY : FriendModel.cxx.o
+model/FriendModel.cxx.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/FriendModel.cxx.o
+.PHONY : model/FriendModel.cxx.o
 
-FriendModel.i: FriendModel.cxx.i
-.PHONY : FriendModel.i
+model/FriendModel.i: model/FriendModel.cxx.i
+.PHONY : model/FriendModel.i
 
 # target to preprocess a source file
-FriendModel.cxx.i:
-	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/FriendModel.cxx.i
-.PHONY : FriendModel.cxx.i
+model/FriendModel.cxx.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/FriendModel.cxx.i
+.PHONY : model/FriendModel.cxx.i
 
-FriendModel.s: FriendModel.cxx.s
-.PHONY : FriendModel.s
+model/FriendModel.s: model/FriendModel.cxx.s
+.PHONY : model/FriendModel.s
 
 # target to generate assembly for a file
-FriendModel.cxx.s:
-	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/FriendModel.cxx.s
-.PHONY : FriendModel.cxx.s
+model/FriendModel.cxx.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/FriendModel.cxx.s
+.PHONY : model/FriendModel.cxx.s
 
-OfflineMsgModel.o: OfflineMsgModel.cxx.o
-.PHONY : OfflineMsgModel.o
+model/GroupModel.o: model/GroupModel.cxx.o
+.PHONY : model/GroupModel.o
 
 # target to build an object file
-OfflineMsgModel.cxx.o:
-	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/OfflineMsgModel.cxx.o
-.PHONY : OfflineMsgModel.cxx.o
+model/GroupModel.cxx.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/GroupModel.cxx.o
+.PHONY : model/GroupModel.cxx.o
 
-OfflineMsgModel.i: OfflineMsgModel.cxx.i
-.PHONY : OfflineMsgModel.i
+model/GroupModel.i: model/GroupModel.cxx.i
+.PHONY : model/GroupModel.i
 
 # target to preprocess a source file
-OfflineMsgModel.cxx.i:
-	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/OfflineMsgModel.cxx.i
-.PHONY : OfflineMsgModel.cxx.i
+model/GroupModel.cxx.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/GroupModel.cxx.i
+.PHONY : model/GroupModel.cxx.i
 
-OfflineMsgModel.s: OfflineMsgModel.cxx.s
-.PHONY : OfflineMsgModel.s
+model/GroupModel.s: model/GroupModel.cxx.s
+.PHONY : model/GroupModel.s
 
 # target to generate assembly for a file
-OfflineMsgModel.cxx.s:
-	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/OfflineMsgModel.cxx.s
-.PHONY : OfflineMsgModel.cxx.s
+model/GroupModel.cxx.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/GroupModel.cxx.s
+.PHONY : model/GroupModel.cxx.s
 
-UserModel.o: UserModel.cxx.o
-.PHONY : UserModel.o
+model/OfflineMsgModel.o: model/OfflineMsgModel.cxx.o
+.PHONY : model/OfflineMsgModel.o
 
 # target to build an object file
-UserModel.cxx.o:
-	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/UserModel.cxx.o
-.PHONY : UserModel.cxx.o
+model/OfflineMsgModel.cxx.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/OfflineMsgModel.cxx.o
+.PHONY : model/OfflineMsgModel.cxx.o
 
-UserModel.i: UserModel.cxx.i
-.PHONY : UserModel.i
+model/OfflineMsgModel.i: model/OfflineMsgModel.cxx.i
+.PHONY : model/OfflineMsgModel.i
 
 # target to preprocess a source file
-UserModel.cxx.i:
-	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/UserModel.cxx.i
-.PHONY : UserModel.cxx.i
+model/OfflineMsgModel.cxx.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/OfflineMsgModel.cxx.i
+.PHONY : model/OfflineMsgModel.cxx.i
 
-UserModel.s: UserModel.cxx.s
-.PHONY : UserModel.s
+model/OfflineMsgModel.s: model/OfflineMsgModel.cxx.s
+.PHONY : model/OfflineMsgModel.s
 
 # target to generate assembly for a file
-UserModel.cxx.s:
-	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/UserModel.cxx.s
-.PHONY : UserModel.cxx.s
+model/OfflineMsgModel.cxx.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/OfflineMsgModel.cxx.s
+.PHONY : model/OfflineMsgModel.cxx.s
+
+model/UserModel.o: model/UserModel.cxx.o
+.PHONY : model/UserModel.o
+
+# target to build an object file
+model/UserModel.cxx.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o
+.PHONY : model/UserModel.cxx.o
+
+model/UserModel.i: model/UserModel.cxx.i
+.PHONY : model/UserModel.i
+
+# target to preprocess a source file
+model/UserModel.cxx.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.i
+.PHONY : model/UserModel.cxx.i
+
+model/UserModel.s: model/UserModel.cxx.s
+.PHONY : model/UserModel.s
+
+# target to generate assembly for a file
+model/UserModel.cxx.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.s
+.PHONY : model/UserModel.cxx.s
 
 # Help Target
 help:
@@ -292,15 +316,18 @@ help:
 	@echo "... ChatService.o"
 	@echo "... ChatService.i"
 	@echo "... ChatService.s"
-	@echo "... FriendModel.o"
-	@echo "... FriendModel.i"
-	@echo "... FriendModel.s"
-	@echo "... OfflineMsgModel.o"
-	@echo "... OfflineMsgModel.i"
-	@echo "... OfflineMsgModel.s"
-	@echo "... UserModel.o"
-	@echo "... UserModel.i"
-	@echo "... UserModel.s"
+	@echo "... model/FriendModel.o"
+	@echo "... model/FriendModel.i"
+	@echo "... model/FriendModel.s"
+	@echo "... model/GroupModel.o"
+	@echo "... model/GroupModel.i"
+	@echo "... model/GroupModel.s"
+	@echo "... model/OfflineMsgModel.o"
+	@echo "... model/OfflineMsgModel.i"
+	@echo "... model/OfflineMsgModel.s"
+	@echo "... model/UserModel.o"
+	@echo "... model/UserModel.i"
+	@echo "... model/UserModel.s"
 .PHONY : help
 
 
