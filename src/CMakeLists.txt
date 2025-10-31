@@ -8,11 +8,6 @@ add_executable(ChatServer
     Application.cc
 )
 
-target_include_directories(ChatServer PRIVATE 
-    ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/include/model
-)
-
 target_link_directories(ChatServer PRIVATE 
     ${PROJECT_SOURCE_DIR}/libs
     ${PROJECT_SOURCE_DIR}/libs/muduo

@@ -3,13 +3,13 @@
     {"msgType": 0, "userid": 1},
 
 "登录请求" :
-    {"msgType": 1, "userid": 1, "password": "123456"},
+    {"msgType": 1, "userid": 2, "password": "123456"},
 
 "注册请求" : 
     {"msgType": 3, "username": "stark3", "password": "123456"},
 
 "单发消息" :
-    {"msgType": 5, "userid": 1, "username": "stark", "to": 2, "content": "xxxx"},
+    {"msgType": 5, "userid": 2, "username": "stark", "to": 1, "content": "enen, I'm number-two"},
 
 "添加好友" :
     {"msgType": 6, "userid": 1, "friendid": 2},
