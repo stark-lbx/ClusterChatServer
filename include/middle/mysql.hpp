@@ -13,8 +13,10 @@ static std::string password = "123456";
 static std::string dbname = "chatserver";
 }
 
-namespace chat{
-namespace db{
+namespace chat
+{
+namespace db
+{
 
 class MySQL
 {

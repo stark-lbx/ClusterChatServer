@@ -1,6 +1,6 @@
 // clang-format off
 #include "UserModel.hxx"
-#include "db/mysql.hpp"
+#include "middle/mysql.hpp"
 #include <iostream>
 
 bool chat::model::UserModel::insert(User &user)
@@ -74,7 +74,7 @@ std::unique_ptr<chat::User> chat::model::UserModel::query(std::string name)
 {
     // 1. 组装sql语句
     char sql[1024] = {0};
-    ::sprintf(sql, "select * from User where username = %s", name.c_str());
+    ::sprintf(sql, "select * from User where username = '%s'", name.c_str());
 
     chat::db::MySQL mysql;
     if(mysql.connect())

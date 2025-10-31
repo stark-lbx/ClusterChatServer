@@ -1,7 +1,7 @@
 // clang-format off
 
 #include "GroupModel.hxx"
-#include "db/mysql.hpp"
+#include "middle/mysql.hpp"
 
 bool chat::model::GroupModel::create(Group & group)
 {

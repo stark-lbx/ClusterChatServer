@@ -11,10 +11,18 @@ void resetHandler(int)
 
 int main(int argc, char *argv[])
 {
-    signal(SIGINT, resetHandler);
+    if(argc<2)
+    {
+        std::cerr << "command invalid! example: ./ChatServer 127.0.0.1 6000" << std::endl;
+        ::exit(-1);
+    }
+    char* ip = argv[1];
+    uint16_t port = ::atoi(argv[2]);
+
+    ::signal(SIGINT, resetHandler);
 
     muduo::net::EventLoop loop;
-    muduo::net::InetAddress addr("127.0.0.1", 2396);
+    muduo::net::InetAddress addr(ip, port);
     chat::ChatServer server(&loop, addr, "ChatServer");
 
     server.start();

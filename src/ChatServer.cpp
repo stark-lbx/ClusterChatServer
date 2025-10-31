@@ -1,6 +1,6 @@
 // clang-format off
 #include "ChatServer.hpp"
-#include "json/json.hpp"
+#include "middle/json.hpp"
 #include "ChatService.hpp"
 
 #include <string>

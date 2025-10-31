@@ -6,7 +6,7 @@
     {"msgType": 1, "userid": 1, "password": "123456"},
 
 "注册请求" : 
-    {"msgType": 3, "username": "stark1", "password": "123456"},
+    {"msgType": 3, "username": "stark3", "password": "123456"},
 
 "单发消息" :
     {"msgType": 5, "userid": 1, "username": "stark", "to": 2, "content": "xxxx"},

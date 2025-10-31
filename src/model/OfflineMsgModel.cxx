@@ -1,6 +1,6 @@
 // clang-format off
 #include "OfflineMsgModel.hxx"
-#include "db/mysql.hpp"
+#include "middle/mysql.hpp"
 #include <iostream>
 
 bool chat::model::OfflineMsgModel::insert(int userid, const std::string & msg)

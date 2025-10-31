@@ -1,6 +1,6 @@
 // clang-format off
 #include "FriendModel.hxx"
-#include "db/mysql.hpp"
+#include "middle/mysql.hpp"
 
 bool chat::model::FriendModel::insert(int userid, int friendid)
 {

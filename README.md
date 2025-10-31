@@ -159,4 +159,255 @@ create table OfflineMessage(
 数据模块-mysql数据库：
     ORM框架：Object Relation Map-对象关系映射
 
-<!-- 客户端：MVC: Model - View - Control -->
+<!-- 客户端：MVC: Model - View - Control -->.
+
+
+# 项目结构（单机版本）
+├── CMakeLists.txt
+├── README.md
+├── bin
+│   ├── ChatServer
+│   └── ClientRequest.json
+├── build
+│   ├── CMakeCache.txt
+│   ├── CMakeFiles
+│   │   ├── 3.22.1
+│   │   │   ├── CMakeCCompiler.cmake
+│   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   ├── CMakeSystem.cmake
+│   │   │   ├── CompilerIdC
+│   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   ├── a.out
+│   │   │   │   └── tmp
+│   │   │   └── CompilerIdCXX
+│   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │       ├── a.out
+│   │   │       └── tmp
+│   │   ├── CMakeDirectoryInformation.cmake
+│   │   ├── CMakeOutput.log
+│   │   ├── CMakeTmp
+│   │   ├── Makefile.cmake
+│   │   ├── Makefile2
+│   │   ├── TargetDirectories.txt
+│   │   ├── cmake.check_cache
+│   │   └── progress.marks
+│   ├── Makefile
+│   ├── cmake_install.cmake
+│   └── src
+│       ├── CMakeFiles
+│       │   ├── CMakeDirectoryInformation.cmake
+│       │   ├── ChatServer.dir
+│       │   │   ├── Application.cc.o
+│       │   │   ├── Application.cc.o.d
+│       │   │   ├── ChatServer.cpp.o
+│       │   │   ├── ChatServer.cpp.o.d
+│       │   │   ├── ChatService.cpp.o
+│       │   │   ├── ChatService.cpp.o.d
+│       │   │   ├── DependInfo.cmake
+│       │   │   ├── FriendModel.cxx.o
+│       │   │   ├── FriendModel.cxx.o.d
+│       │   │   ├── OfflineMsgModel.cc.o
+│       │   │   ├── OfflineMsgModel.cc.o.d
+│       │   │   ├── OfflineMsgModel.cxx.o
+│       │   │   ├── OfflineMsgModel.cxx.o.d
+│       │   │   ├── UserModel.cc.o
+│       │   │   ├── UserModel.cc.o.d
+│       │   │   ├── UserModel.cxx.o
+│       │   │   ├── UserModel.cxx.o.d
+│       │   │   ├── build.make
+│       │   │   ├── cmake_clean.cmake
+│       │   │   ├── compiler_depend.internal
+│       │   │   ├── compiler_depend.make
+│       │   │   ├── compiler_depend.ts
+│       │   │   ├── depend.make
+│       │   │   ├── flags.make
+│       │   │   ├── link.txt
+│       │   │   ├── model
+│       │   │   │   ├── FriendModel.cxx.o
+│       │   │   │   ├── FriendModel.cxx.o.d
+│       │   │   │   ├── GroupModel.cxx.o
+│       │   │   │   ├── GroupModel.cxx.o.d
+│       │   │   │   ├── OfflineMsgModel.cxx.o
+│       │   │   │   ├── OfflineMsgModel.cxx.o.d
+│       │   │   │   ├── UserModel.cxx.o
+│       │   │   │   └── UserModel.cxx.o.d
+│       │   │   └── progress.make
+│       │   └── progress.marks
+│       ├── Makefile
+│       └── cmake_install.cmake
+├── example
+│   ├── cmake
+│   │   └── CMakeLists.txt
+│   ├── json
+│   │   ├── example
+│   │   │   ├── TestJson.cpp
+│   │   │   └── test
+│   │   └── json.hpp
+│   └── muduo
+│       ├── CMakeLists.txt
+│       ├── build
+│       │   ├── CMakeCache.txt
+│       │   ├── CMakeFiles
+│       │   │   ├── 3.22.1
+│       │   │   │   ├── CMakeCCompiler.cmake
+│       │   │   │   ├── CMakeCXXCompiler.cmake
+│       │   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│       │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│       │   │   │   ├── CMakeSystem.cmake
+│       │   │   │   ├── CompilerIdC
+│       │   │   │   │   ├── CMakeCCompilerId.c
+│       │   │   │   │   ├── a.out
+│       │   │   │   │   └── tmp
+│       │   │   │   └── CompilerIdCXX
+│       │   │   │       ├── CMakeCXXCompilerId.cpp
+│       │   │   │       ├── a.out
+│       │   │   │       └── tmp
+│       │   │   ├── CMakeDirectoryInformation.cmake
+│       │   │   ├── CMakeOutput.log
+│       │   │   ├── CMakeTmp
+│       │   │   ├── Makefile.cmake
+│       │   │   ├── Makefile2
+│       │   │   ├── TargetDirectories.txt
+│       │   │   ├── cmake.check_cache
+│       │   │   ├── progress.marks
+│       │   │   └── server.dir
+│       │   │       ├── DependInfo.cmake
+│       │   │       ├── build.make
+│       │   │       ├── cmake_clean.cmake
+│       │   │       ├── compiler_depend.make
+│       │   │       ├── compiler_depend.ts
+│       │   │       ├── depend.make
+│       │   │       ├── flags.make
+│       │   │       ├── link.txt
+│       │   │       └── progress.make
+│       │   ├── Makefile
+│       │   └── cmake_install.cmake
+│       ├── mserver
+│       └── mserver.cc
+├── include
+│   ├── ChatServer.hpp
+│   ├── ChatService.hpp
+│   ├── Common.h
+│   ├── db
+│   │   └── mysql.hpp
+│   ├── json
+│   │   └── json.hpp
+│   ├── model
+│   │   ├── FriendModel.hxx
+│   │   ├── GroupModel.hxx
+│   │   ├── OfflineMsgModel.hxx
+│   │   └── UserModel.hxx
+│   └── muduo
+│       ├── base
+│       │   ├── AsyncLogging.h
+│       │   ├── Atomic.h
+│       │   ├── BlockingQueue.h
+│       │   ├── BoundedBlockingQueue.h
+│       │   ├── Condition.h
+│       │   ├── CountDownLatch.h
+│       │   ├── CurrentThread.h
+│       │   ├── Date.h
+│       │   ├── Exception.h
+│       │   ├── FileUtil.h
+│       │   ├── GzipFile.h
+│       │   ├── LogFile.h
+│       │   ├── LogStream.h
+│       │   ├── Logging.h
+│       │   ├── Mutex.h
+│       │   ├── ProcessInfo.h
+│       │   ├── Singleton.h
+│       │   ├── StringPiece.h
+│       │   ├── Thread.h
+│       │   ├── ThreadLocal.h
+│       │   ├── ThreadLocalSingleton.h
+│       │   ├── ThreadPool.h
+│       │   ├── TimeZone.h
+│       │   ├── Timestamp.h
+│       │   ├── Types.h
+│       │   ├── WeakCallback.h
+│       │   ├── copyable.h
+│       │   └── noncopyable.h
+│       └── net
+│           ├── Buffer.h
+│           ├── Callbacks.h
+│           ├── Channel.h
+│           ├── Endian.h
+│           ├── EventLoop.h
+│           ├── EventLoopThread.h
+│           ├── EventLoopThreadPool.h
+│           ├── InetAddress.h
+│           ├── TcpClient.h
+│           ├── TcpConnection.h
+│           ├── TcpServer.h
+│           ├── TimerId.h
+│           ├── http
+│           │   ├── HttpContext.h
+│           │   ├── HttpRequest.h
+│           │   ├── HttpResponse.h
+│           │   └── HttpServer.h
+│           └── inspect
+│               └── Inspector.h
+├── libs
+│   ├── libmysqlclient.a
+│   ├── libmysqlclient.so
+│   ├── libpthread.a
+│   ├── libpthread.so.0
+│   └── muduo
+│       ├── libmuduo_base.a
+│       ├── libmuduo_http.a
+│       ├── libmuduo_inspect.a
+│       └── libmuduo_net.a
+└── src
+    ├── Application.cc
+    ├── CMakeLists.txt
+    ├── ChatServer.cpp
+    ├── ChatService.cpp
+    └── model
+        ├── FriendModel.cxx
+        ├── GroupModel.cxx
+        ├── OfflineMsgModel.cxx
+        └── UserModel.cxx
+
+40 directories, 166 files
+
+
+---  
+
+# nginx的安装
+```shell
+$ sudo apt install curl gnupg2 ca-certificates lsb-release ubuntu-keyring 
+$ curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+$ gpg --dry-run --quiet --no-keyring --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
+$ echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
+$ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" | sudo tee /etc/apt/preferences.d/99nginx
+$ sudo apt update
+$ sudo apt install nginx
+```
+
+```plaintext
+nginx version: nginx/1.28.0
+built by gcc 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+built with OpenSSL 3.0.2 15 Mar 2022
+TLS SNI support enabled
+configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/run/nginx.pid --lock-path=/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-compat --with-file-aio --with-threads --with-http_addition_module --with-http_auth_request_module --with-http_dav_module --with-http_flv_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_mp4_module --with-http_random_index_module --with-http_realip_module --with-http_secure_link_module --with-http_slice_module --with-http_ssl_module --with-http_stub_status_module --with-http_sub_module --with-http_v2_module --with-http_v3_module --with-mail --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream_ssl_module --with-stream_ssl_preread_module --with-cc-opt='-g -O2 -ffile-prefix-map=/home/builder/debuild/nginx-1.28.0/debian/debuild-base/nginx-1.28.0=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -fPIC' --with-ld-opt='-Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -flto=auto -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -pie'
+```
+
+<!-- nginx tcp loadbalance configure -->
+stream {
+    upstream ChatServer {
+        server 127.0.0.1:6000 weight=1 max_fails=3 fail_timeout=30s;
+        server 127.0.0.1:6002 weight=1 max_fails=3 fail_timeout=30s;
+    }
+
+    server {
+        proxy_connect_timeout 1s;
+        #proxy_timeout 3s;
+        listen 2396;
+        proxy_pass ChatServer;
+        tcp_nodelay on;
+    }
+}
+
+sudo systemctl restart nginx

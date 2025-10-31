@@ -22,5 +22,6 @@ target_link_libraries(ChatServer PRIVATE
     muduo_net 
     muduo_base
     mysqlclient 
+    hiredis
     pthread
 )
