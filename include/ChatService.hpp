@@ -3,7 +3,9 @@
 #define CHATSERVICE_H
 
 #include "muduo/net/TcpConnection.h"
-#include "middle/json.hpp"
+#include "middle/redismq.hpp"
+#include "json.hpp"
+
 #include <unordered_map>
 #include <functional>
 #include <memory>
@@ -50,7 +52,7 @@ public:
     void singleChat(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
     void groupChat(const muduo::net::TcpConnectionPtr& conn, const nlohmann::json& js, const muduo::Timestamp& time);
 
-
+    void handleMQSubscribeMessage(int userid, std::string message);
 private:
     ChatService();
     
@@ -70,6 +72,9 @@ private:
     std::unique_ptr<model::OfflineMsgModel> offlineMsgModel_;
     std::unique_ptr<model::FriendModel> friendModel_;
     std::unique_ptr<model::GroupModel> groupModel_;
+
+    // 消息队列 - 跨服务器通信
+    chat::mq::RedisMQ redis_mq_;
 };
 
 } // namespace service

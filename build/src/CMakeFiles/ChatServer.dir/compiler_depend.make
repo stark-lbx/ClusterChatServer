@@ -4,10 +4,10 @@
 src/CMakeFiles/ChatServer.dir/Application.cc.o: ../src/Application.cc \
   /usr/include/stdc-predef.h \
   ../include/ChatServer.hpp \
-  ../include/muduo/base/Logging.h \
-  ../include/muduo/base/LogStream.h \
-  ../include/muduo/base/noncopyable.h \
-  ../include/muduo/base/StringPiece.h \
+  ../include/thirdparty/muduo/base/Logging.h \
+  ../include/thirdparty/muduo/base/LogStream.h \
+  ../include/thirdparty/muduo/base/noncopyable.h \
+  ../include/thirdparty/muduo/base/StringPiece.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
@@ -41,7 +41,7 @@ src/CMakeFiles/ChatServer.dir/Application.cc.o: ../src/Application.cc \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  ../include/muduo/base/Types.h \
+  ../include/thirdparty/muduo/base/Types.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
@@ -161,8 +161,8 @@ src/CMakeFiles/ChatServer.dir/Application.cc.o: ../src/Application.cc \
   /usr/include/c++/11/bits/charconv.h \
   /usr/include/c++/11/bits/basic_string.tcc \
   /usr/include/assert.h \
-  ../include/muduo/base/Timestamp.h \
-  ../include/muduo/base/copyable.h \
+  ../include/thirdparty/muduo/base/Timestamp.h \
+  ../include/thirdparty/muduo/base/copyable.h \
   /usr/include/boost/operators.hpp \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/iterator \
@@ -204,8 +204,8 @@ src/CMakeFiles/ChatServer.dir/Application.cc.o: ../src/Application.cc \
   /usr/include/boost/detail/workaround.hpp \
   /usr/include/boost/config/workaround.hpp \
   /usr/include/boost/core/addressof.hpp \
-  ../include/muduo/net/Buffer.h \
-  ../include/muduo/net/Endian.h \
+  ../include/thirdparty/muduo/net/Buffer.h \
+  ../include/thirdparty/muduo/net/Endian.h \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
@@ -236,10 +236,10 @@ src/CMakeFiles/ChatServer.dir/Application.cc.o: ../src/Application.cc \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/vector.tcc \
   /usr/include/c++/11/pstl/execution_defs.h \
-  ../include/muduo/net/TcpServer.h \
-  ../include/muduo/base/Atomic.h \
-  ../include/muduo/net/TcpConnection.h \
-  ../include/muduo/net/Callbacks.h \
+  ../include/thirdparty/muduo/net/TcpServer.h \
+  ../include/thirdparty/muduo/base/Atomic.h \
+  ../include/thirdparty/muduo/net/TcpConnection.h \
+  ../include/thirdparty/muduo/net/Callbacks.h \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/align.h \
@@ -254,8 +254,7 @@ src/CMakeFiles/ChatServer.dir/Application.cc.o: ../src/Application.cc \
   /usr/include/c++/11/bits/atomic_lockfree_defines.h \
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
-  ../include/muduo/net/Buffer.h \
-  ../include/muduo/net/InetAddress.h \
+  ../include/thirdparty/muduo/net/InetAddress.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/sys/socket.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -316,14 +315,13 @@ src/CMakeFiles/ChatServer.dir/Application.cc.o: ../src/Application.cc \
   /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_map.h \
   /usr/include/c++/11/bits/stl_multimap.h \
-  ../include/muduo/net/EventLoop.h \
+  ../include/thirdparty/muduo/net/EventLoop.h \
   /usr/include/c++/11/atomic \
-  ../include/muduo/base/Mutex.h \
-  ../include/muduo/base/CurrentThread.h \
-  ../include/muduo/net/TimerId.h \
+  ../include/thirdparty/muduo/base/Mutex.h \
+  ../include/thirdparty/muduo/base/CurrentThread.h \
+  ../include/thirdparty/muduo/net/TimerId.h \
   ../include/ChatService.hpp \
-  ../include/muduo/net/TcpConnection.h \
-  ../include/json/json.hpp \
+  ../include/thirdparty/json.hpp \
   /usr/include/c++/11/forward_list \
   /usr/include/c++/11/bits/forward_list.h \
   /usr/include/c++/11/bits/forward_list.tcc \
@@ -434,10 +432,10 @@ src/CMakeFiles/ChatServer.dir/Application.cc.o: ../src/Application.cc \
 src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: ../src/ChatServer.cpp \
   /usr/include/stdc-predef.h \
   ../include/ChatServer.hpp \
-  ../include/muduo/base/Logging.h \
-  ../include/muduo/base/LogStream.h \
-  ../include/muduo/base/noncopyable.h \
-  ../include/muduo/base/StringPiece.h \
+  ../include/thirdparty/muduo/base/Logging.h \
+  ../include/thirdparty/muduo/base/LogStream.h \
+  ../include/thirdparty/muduo/base/noncopyable.h \
+  ../include/thirdparty/muduo/base/StringPiece.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
@@ -471,7 +469,7 @@ src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: ../src/ChatServer.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  ../include/muduo/base/Types.h \
+  ../include/thirdparty/muduo/base/Types.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
@@ -591,8 +589,8 @@ src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: ../src/ChatServer.cpp \
   /usr/include/c++/11/bits/charconv.h \
   /usr/include/c++/11/bits/basic_string.tcc \
   /usr/include/assert.h \
-  ../include/muduo/base/Timestamp.h \
-  ../include/muduo/base/copyable.h \
+  ../include/thirdparty/muduo/base/Timestamp.h \
+  ../include/thirdparty/muduo/base/copyable.h \
   /usr/include/boost/operators.hpp \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/iterator \
@@ -634,8 +632,8 @@ src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: ../src/ChatServer.cpp \
   /usr/include/boost/detail/workaround.hpp \
   /usr/include/boost/config/workaround.hpp \
   /usr/include/boost/core/addressof.hpp \
-  ../include/muduo/net/Buffer.h \
-  ../include/muduo/net/Endian.h \
+  ../include/thirdparty/muduo/net/Buffer.h \
+  ../include/thirdparty/muduo/net/Endian.h \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
@@ -666,10 +664,10 @@ src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: ../src/ChatServer.cpp \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/vector.tcc \
   /usr/include/c++/11/pstl/execution_defs.h \
-  ../include/muduo/net/TcpServer.h \
-  ../include/muduo/base/Atomic.h \
-  ../include/muduo/net/TcpConnection.h \
-  ../include/muduo/net/Callbacks.h \
+  ../include/thirdparty/muduo/net/TcpServer.h \
+  ../include/thirdparty/muduo/base/Atomic.h \
+  ../include/thirdparty/muduo/net/TcpConnection.h \
+  ../include/thirdparty/muduo/net/Callbacks.h \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/align.h \
@@ -684,8 +682,7 @@ src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: ../src/ChatServer.cpp \
   /usr/include/c++/11/bits/atomic_lockfree_defines.h \
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
-  ../include/muduo/net/Buffer.h \
-  ../include/muduo/net/InetAddress.h \
+  ../include/thirdparty/muduo/net/InetAddress.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/sys/socket.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -746,12 +743,13 @@ src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: ../src/ChatServer.cpp \
   /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_map.h \
   /usr/include/c++/11/bits/stl_multimap.h \
-  ../include/muduo/net/EventLoop.h \
+  ../include/thirdparty/muduo/net/EventLoop.h \
   /usr/include/c++/11/atomic \
-  ../include/muduo/base/Mutex.h \
-  ../include/muduo/base/CurrentThread.h \
-  ../include/muduo/net/TimerId.h \
-  ../include/json/json.hpp \
+  ../include/thirdparty/muduo/base/Mutex.h \
+  ../include/thirdparty/muduo/base/CurrentThread.h \
+  ../include/thirdparty/muduo/net/TimerId.h \
+  ../include/ChatService.hpp \
+  ../include/thirdparty/json.hpp \
   /usr/include/c++/11/forward_list \
   /usr/include/c++/11/bits/forward_list.h \
   /usr/include/c++/11/bits/forward_list.tcc \
@@ -832,9 +830,6 @@ src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: ../src/ChatServer.cpp \
   /usr/include/c++/11/bits/stl_numeric.h \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
-  ../include/ChatService.hpp \
-  ../include/muduo/net/TcpConnection.h \
-  ../include/json/json.hpp \
   /usr/include/c++/11/mutex \
   /usr/include/c++/11/bits/std_mutex.h \
   /usr/include/c++/11/bits/unique_lock.h
@@ -842,9 +837,9 @@ src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: ../src/ChatServer.cpp \
 src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: ../src/ChatService.cpp \
   /usr/include/stdc-predef.h \
   ../include/ChatService.hpp \
-  ../include/muduo/net/TcpConnection.h \
-  ../include/muduo/base/noncopyable.h \
-  ../include/muduo/base/StringPiece.h \
+  ../include/thirdparty/muduo/net/TcpConnection.h \
+  ../include/thirdparty/muduo/base/noncopyable.h \
+  ../include/thirdparty/muduo/base/StringPiece.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
@@ -878,7 +873,7 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: ../src/ChatService.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  ../include/muduo/base/Types.h \
+  ../include/thirdparty/muduo/base/Types.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
@@ -998,9 +993,9 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: ../src/ChatService.cpp \
   /usr/include/c++/11/bits/charconv.h \
   /usr/include/c++/11/bits/basic_string.tcc \
   /usr/include/assert.h \
-  ../include/muduo/net/Callbacks.h \
-  ../include/muduo/base/Timestamp.h \
-  ../include/muduo/base/copyable.h \
+  ../include/thirdparty/muduo/net/Callbacks.h \
+  ../include/thirdparty/muduo/base/Timestamp.h \
+  ../include/thirdparty/muduo/base/copyable.h \
   /usr/include/boost/operators.hpp \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/iterator \
@@ -1084,11 +1079,11 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: ../src/ChatService.cpp \
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  ../include/muduo/net/Buffer.h \
-  ../include/muduo/net/Endian.h \
+  ../include/thirdparty/muduo/net/Buffer.h \
+  ../include/thirdparty/muduo/net/Endian.h \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/pstl/glue_algorithm_defs.h \
-  ../include/muduo/net/InetAddress.h \
+  ../include/thirdparty/muduo/net/InetAddress.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/sys/socket.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -1145,7 +1140,7 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: ../src/ChatService.cpp \
   /usr/include/boost/utility/enable_if.hpp \
   /usr/include/boost/core/enable_if.hpp \
   /usr/include/boost/type_traits/is_same.hpp \
-  ../include/json/json.hpp \
+  ../include/thirdparty/json.hpp \
   /usr/include/c++/11/forward_list \
   /usr/include/c++/11/bits/forward_list.h \
   /usr/include/c++/11/bits/forward_list.tcc \
@@ -1238,8 +1233,8 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: ../src/ChatService.cpp \
   ../include/model/FriendModel.hxx \
   ../include/model/UserModel.hxx \
   ../include/model/GroupModel.hxx \
-  ../include/muduo/base/Logging.h \
-  ../include/muduo/base/LogStream.h \
+  ../include/thirdparty/muduo/base/Logging.h \
+  ../include/thirdparty/muduo/base/LogStream.h \
   ../include/Common.h
 
 src/CMakeFiles/ChatServer.dir/model/FriendModel.cxx.o: ../src/model/FriendModel.cxx \
@@ -1429,7 +1424,7 @@ src/CMakeFiles/ChatServer.dir/model/FriendModel.cxx.o: ../src/model/FriendModel.
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  ../include/db/mysql.hpp \
+  ../include/middle/mysql.hpp \
   /usr/include/mysql/mysql.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
   /usr/include/mysql/field_types.h \
@@ -1632,7 +1627,7 @@ src/CMakeFiles/ChatServer.dir/model/GroupModel.cxx.o: ../src/model/GroupModel.cx
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  ../include/db/mysql.hpp \
+  ../include/middle/mysql.hpp \
   /usr/include/mysql/mysql.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
   /usr/include/mysql/field_types.h \
@@ -1805,7 +1800,7 @@ src/CMakeFiles/ChatServer.dir/model/OfflineMsgModel.cxx.o: ../src/model/OfflineM
   /usr/include/c++/11/bits/stl_vector.h \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/vector.tcc \
-  ../include/db/mysql.hpp \
+  ../include/middle/mysql.hpp \
   /usr/include/mysql/mysql.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
   /usr/include/mysql/field_types.h \
@@ -2032,7 +2027,7 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  ../include/db/mysql.hpp \
+  ../include/middle/mysql.hpp \
   /usr/include/mysql/mysql.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
   /usr/include/mysql/field_types.h \
@@ -2083,9 +2078,9 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/mysql/my_compress.h:
 
-/usr/include/mysql/my_command.h:
-
 /usr/include/mysql/field_types.h:
+
+../include/Common.h:
 
 ../include/model/FriendModel.hxx:
 
@@ -2093,13 +2088,13 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/x86_64-linux-gnu/bits/sigthread.h:
 
-/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
-
 /usr/include/x86_64-linux-gnu/sys/ucontext.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/sigcontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigaction.h:
 
 /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
 
@@ -2108,6 +2103,8 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
 
 ../src/ChatService.cpp:
 
@@ -2147,6 +2144,8 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
+/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h:
+
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
 /usr/include/c++/11/cwctype:
@@ -2164,8 +2163,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/c++/11/bits/indirect_array.h:
 
 /usr/include/c++/11/bits/mask_array.h:
-
-/usr/include/c++/11/bits/gslice_array.h:
 
 /usr/include/c++/11/bits/gslice.h:
 
@@ -2191,6 +2188,8 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
 
+/usr/include/c++/11/tr1/ell_integral.tcc:
+
 /usr/include/c++/11/tr1/bessel_function.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
@@ -2202,8 +2201,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/c++/11/bits/specfun.h:
 
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
@@ -2221,19 +2218,15 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 ../include/ChatService.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/sigaction.h:
+../include/thirdparty/muduo/net/TimerId.h:
 
-../include/muduo/base/CurrentThread.h:
+/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
 
-../include/muduo/base/Mutex.h:
+../include/thirdparty/muduo/base/CurrentThread.h:
+
+../include/thirdparty/muduo/base/Mutex.h:
 
 /usr/include/c++/11/atomic:
-
-../include/Common.h:
-
-../include/muduo/net/EventLoop.h:
-
-/usr/include/c++/11/bits/stl_multimap.h:
 
 /usr/include/c++/11/bits/stl_map.h:
 
@@ -2312,8 +2305,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/x86_64-linux-gnu/bits/sockaddr.h:
 
 /usr/include/x86_64-linux-gnu/bits/socket_type.h:
-
-/usr/include/x86_64-linux-gnu/bits/socket.h:
 
 /usr/include/boost/any.hpp:
 
@@ -2399,8 +2390,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
-../include/muduo/net/Buffer.h:
-
 /usr/include/x86_64-linux-gnu/bits/sigstack.h:
 
 /usr/include/boost/type_index/stl_type_index.hpp:
@@ -2412,8 +2401,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/c++/11/bits/stl_iterator.h:
 
 /usr/include/c++/11/bits/sstream.tcc:
-
-../include/muduo/base/Logging.h:
 
 /usr/include/c++/11/new:
 
@@ -2443,8 +2430,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/x86_64-linux-gnu/bits/in.h:
 
-../include/muduo/base/Atomic.h:
-
 /usr/include/c++/11/bits/postypes.h:
 
 /usr/include/c++/11/cstdint:
@@ -2469,6 +2454,10 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
+/usr/include/x86_64-linux-gnu/bits/socket.h:
+
+../include/thirdparty/muduo/net/Callbacks.h:
+
 /usr/include/c++/11/tr1/gamma.tcc:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
@@ -2476,8 +2465,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/c++/11/bits/locale_facets.h:
 
 /usr/include/c++/11/bits/exception.h:
-
-../include/json/json.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
@@ -2493,17 +2480,19 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
+/usr/include/c++/11/string:
+
 /usr/include/c++/11/bits/ostream_insert.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+../include/middle/mysql.hpp:
 
 /usr/include/c++/11/bits/hash_bytes.h:
 
 /usr/include/c++/11/bits/move.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-../include/muduo/net/Callbacks.h:
 
 /usr/include/c++/11/tuple:
 
@@ -2520,6 +2509,10 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/c++/11/type_traits:
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
+
+/usr/include/c++/11/bits/stl_multimap.h:
+
+../include/thirdparty/muduo/base/Logging.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
@@ -2549,45 +2542,35 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
-/usr/include/c++/11/ext/type_traits.h:
-
-../include/muduo/base/LogStream.h:
-
-/usr/include/wchar.h:
-
-/usr/include/c++/11/bits/cxxabi_init_exception.h:
-
-/usr/include/c++/11/bits/basic_ios.h:
-
-/usr/include/c++/11/bits/uniform_int_dist.h:
-
-/usr/include/c++/11/tr1/ell_integral.tcc:
-
-../include/muduo/base/noncopyable.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
 /usr/include/c++/11/debug/assertions.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
 
-/usr/include/c++/11/string:
+/usr/include/boost/config/compiler/gcc.hpp:
 
-../include/muduo/base/StringPiece.h:
+/usr/include/c++/11/iomanip:
 
-/usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
+/usr/include/c++/11/cctype:
 
-/usr/include/c++/11/bits/alloc_traits.h:
+/usr/include/c++/11/unordered_map:
 
-/usr/include/stdc-predef.h:
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
-../include/db/mysql.hpp:
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
 
-/usr/include/c++/11/ext/numeric_traits.h:
+/usr/include/time.h:
 
-/usr/include/c++/11/bits/atomic_base.h:
+/usr/include/boost/core/addressof.hpp:
 
-/usr/include/features.h:
+/usr/include/c++/11/ext/type_traits.h:
+
+/usr/include/c++/11/forward_list:
+
+/usr/include/c++/11/pstl/glue_memory_defs.h:
+
+../include/thirdparty/muduo/base/StringPiece.h:
 
 /usr/include/boost/type_traits/detail/config.hpp:
 
@@ -2607,6 +2590,16 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/c++/11/functional:
 
+/usr/include/c++/11/bits/alloc_traits.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/features.h:
+
+/usr/include/c++/11/ext/numeric_traits.h:
+
+/usr/include/c++/11/bits/atomic_base.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
 /usr/include/boost/operators.hpp:
@@ -2618,8 +2611,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
-
-../include/muduo/base/Timestamp.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
@@ -2635,21 +2626,23 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/c++/11/bits/stl_algobase.h:
 
+/usr/include/wchar.h:
+
+/usr/include/c++/11/bits/cxxabi_init_exception.h:
+
+/usr/include/c++/11/bits/basic_ios.h:
+
+/usr/include/c++/11/bits/uniform_int_dist.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
-/usr/include/c++/11/forward_list:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
-/usr/include/c++/11/pstl/glue_memory_defs.h:
+../include/thirdparty/muduo/base/Types.h:
 
-../include/muduo/base/Types.h:
+/usr/include/boost/config/detail/suffix.hpp:
 
-../include/muduo/base/copyable.h:
-
-/usr/include/wctype.h:
-
-/usr/include/sched.h:
-
-/usr/include/boost/config/user.hpp:
+/usr/include/c++/11/bits/locale_classes.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
@@ -2673,21 +2666,19 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
-/usr/include/boost/type_traits/add_reference.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/time64.h:
+/usr/include/c++/11/initializer_list:
 
 /usr/include/c++/11/iosfwd:
 
-/usr/include/c++/11/initializer_list:
+/usr/include/boost/type_traits/add_reference.hpp:
+
+../include/thirdparty/muduo/base/LogStream.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
+../include/thirdparty/muduo/net/Endian.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
-
-/usr/include/c++/11/iomanip:
-
-/usr/include/c++/11/cctype:
-
-/usr/include/c++/11/unordered_map:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
 
@@ -2700,6 +2691,8 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/c++/11/bits/concept_check.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+../include/thirdparty/json.hpp:
 
 /usr/include/c++/11/streambuf:
 
@@ -2721,13 +2714,17 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/c++/11/string_view:
 
-/usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
+/usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
 
 /usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
 /usr/include/c++/11/bits/exception_defines.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+../include/thirdparty/muduo/net/EventLoop.h:
 
 /usr/include/c++/11/ext/string_conversions.h:
 
@@ -2738,8 +2735,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/mysql/my_list.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
-
-../include/muduo/net/TimerId.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
@@ -2761,6 +2756,10 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
+/usr/include/mysql/my_command.h:
+
+../include/thirdparty/muduo/net/Buffer.h:
+
 ../src/model/OfflineMsgModel.cxx:
 
 /usr/include/alloca.h:
@@ -2772,6 +2771,8 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
 /usr/include/c++/11/cerrno:
+
+../include/thirdparty/muduo/base/noncopyable.h:
 
 /usr/include/errno.h:
 
@@ -2792,6 +2793,12 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 ../src/model/GroupModel.cxx:
 
 /usr/include/c++/11/bits/basic_string.tcc:
+
+../include/thirdparty/muduo/base/Timestamp.h:
+
+/usr/include/boost/config/detail/select_compiler_config.hpp:
+
+../include/thirdparty/muduo/base/copyable.h:
 
 /usr/include/boost/type_traits/is_volatile.hpp:
 
@@ -2818,10 +2825,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/c++/11/mutex:
 
 /usr/include/boost/config/detail/posix_features.hpp:
-
-/usr/include/boost/config/detail/suffix.hpp:
-
-/usr/include/c++/11/bits/locale_classes.tcc:
 
 ../include/ChatServer.hpp:
 
@@ -2851,6 +2854,8 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/c++/11/codecvt:
 
+../include/thirdparty/muduo/base/Atomic.h:
+
 /usr/include/string.h:
 
 /usr/include/c++/11/bits/streambuf.tcc:
@@ -2859,15 +2864,11 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
 
-/usr/include/boost/config/detail/select_compiler_config.hpp:
+/usr/include/wctype.h:
 
-/usr/include/boost/config/compiler/gcc.hpp:
+/usr/include/sched.h:
 
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
-
-/usr/include/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+/usr/include/boost/config/user.hpp:
 
 /usr/include/boost/config/stdlib/libstdcpp3.hpp:
 
@@ -2899,16 +2900,6 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/boost/detail/workaround.hpp:
 
-/usr/include/boost/core/addressof.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h:
-
-../include/muduo/net/Endian.h:
-
-/usr/include/linux/stddef.h:
-
-/usr/include/c++/11/bits/refwrap.h:
-
 /usr/include/c++/11/bits/stl_relops.h:
 
 /usr/include/c++/11/bits/stl_algo.h:
@@ -2928,6 +2919,10 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 /usr/include/c++/11/bits/unique_lock.h:
 
 /usr/include/c++/11/bits/uses_allocator.h:
+
+/usr/include/linux/stddef.h:
+
+/usr/include/c++/11/bits/refwrap.h:
 
 /usr/include/c++/11/bits/hashtable.h:
 
@@ -2959,17 +2954,17 @@ src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o: ../src/model/UserModel.cxx 
 
 /usr/include/c++/11/bits/vector.tcc:
 
-../include/muduo/net/TcpServer.h:
+../include/thirdparty/muduo/net/TcpServer.h:
 
-/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
-
-../include/muduo/net/TcpConnection.h:
+../include/thirdparty/muduo/net/TcpConnection.h:
 
 /usr/include/c++/11/memory:
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
-../include/muduo/net/InetAddress.h:
+/usr/include/c++/11/bits/gslice_array.h:
+
+../include/thirdparty/muduo/net/InetAddress.h:
 
 /usr/include/c++/11/bits/memoryfwd.h:
 

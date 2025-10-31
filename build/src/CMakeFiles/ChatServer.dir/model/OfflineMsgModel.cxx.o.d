@@ -134,7 +134,7 @@ src/CMakeFiles/ChatServer.dir/model/OfflineMsgModel.cxx.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/stark/ClusterChatServer/include/db/mysql.hpp \
+ /home/stark/ClusterChatServer/include/middle/mysql.hpp \
  /usr/include/mysql/mysql.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/include/mysql/field_types.h /usr/include/mysql/my_list.h \

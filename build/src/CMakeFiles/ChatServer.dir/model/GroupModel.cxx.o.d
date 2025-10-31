@@ -157,7 +157,7 @@ src/CMakeFiles/ChatServer.dir/model/GroupModel.cxx.o: \
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/stark/ClusterChatServer/include/db/mysql.hpp \
+ /home/stark/ClusterChatServer/include/middle/mysql.hpp \
  /usr/include/mysql/mysql.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/include/mysql/field_types.h /usr/include/mysql/my_list.h \

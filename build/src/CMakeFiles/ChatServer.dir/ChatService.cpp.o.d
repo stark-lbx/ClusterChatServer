@@ -2,9 +2,9 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /home/stark/ClusterChatServer/src/ChatService.cpp \
  /usr/include/stdc-predef.h \
  /home/stark/ClusterChatServer/include/ChatService.hpp \
- /home/stark/ClusterChatServer/include/muduo/net/TcpConnection.h \
- /home/stark/ClusterChatServer/include/muduo/base/noncopyable.h \
- /home/stark/ClusterChatServer/include/muduo/base/StringPiece.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/net/TcpConnection.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/base/noncopyable.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/base/StringPiece.h \
  /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -34,7 +34,7 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /home/stark/ClusterChatServer/include/muduo/base/Types.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/base/Types.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -132,9 +132,9 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc /usr/include/assert.h \
- /home/stark/ClusterChatServer/include/muduo/net/Callbacks.h \
- /home/stark/ClusterChatServer/include/muduo/base/Timestamp.h \
- /home/stark/ClusterChatServer/include/muduo/base/copyable.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/net/Callbacks.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/base/Timestamp.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/base/copyable.h \
  /usr/include/boost/operators.hpp /usr/include/c++/11/cstddef \
  /usr/include/c++/11/iterator /usr/include/c++/11/bits/stream_iterator.h \
  /usr/include/c++/11/bits/streambuf_iterator.h \
@@ -203,11 +203,11 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/stark/ClusterChatServer/include/muduo/net/Buffer.h \
- /home/stark/ClusterChatServer/include/muduo/net/Endian.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/net/Buffer.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/net/Endian.h \
  /usr/include/c++/11/algorithm \
  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
- /home/stark/ClusterChatServer/include/muduo/net/InetAddress.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/net/InetAddress.h \
  /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/socket.h \
@@ -258,7 +258,27 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/boost/utility/enable_if.hpp \
  /usr/include/boost/core/enable_if.hpp \
  /usr/include/boost/type_traits/is_same.hpp \
- /home/stark/ClusterChatServer/include/json/json.hpp \
+ /home/stark/ClusterChatServer/include/middle/redismq.hpp \
+ /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
+ /usr/include/c++/11/ios /usr/include/c++/11/bits/basic_ios.h \
+ /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
+ /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
+ /usr/include/c++/11/bits/locale_facets.tcc \
+ /usr/include/c++/11/bits/basic_ios.tcc \
+ /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/std_thread.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h /usr/include/c++/11/chrono \
+ /usr/include/c++/11/ratio /usr/include/c++/11/limits \
+ /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
+ /home/stark/ClusterChatServer/include/thirdparty/hiredis/hiredis.h \
+ /home/stark/ClusterChatServer/include/thirdparty/hiredis/read.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h \
+ /home/stark/ClusterChatServer/include/thirdparty/hiredis/sds.h \
+ /home/stark/ClusterChatServer/include/thirdparty/hiredis/alloc.h \
+ /home/stark/ClusterChatServer/include/thirdparty/json.hpp \
  /usr/include/c++/11/forward_list /usr/include/c++/11/bits/forward_list.h \
  /usr/include/c++/11/bits/forward_list.tcc /usr/include/c++/11/map \
  /usr/include/c++/11/bits/stl_tree.h /usr/include/c++/11/bits/stl_map.h \
@@ -273,8 +293,7 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/limits \
- /usr/include/c++/11/tr1/gamma.tcc \
+ /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/tr1/gamma.tcc \
  /usr/include/c++/11/tr1/special_function_util.h \
  /usr/include/c++/11/tr1/bessel_function.tcc \
  /usr/include/c++/11/tr1/beta_function.tcc \
@@ -296,14 +315,7 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/c++/11/bits/mask_array.h \
  /usr/include/c++/11/bits/indirect_array.h /usr/include/c++/11/cassert \
  /usr/include/c++/11/filesystem /usr/include/c++/11/bits/fs_fwd.h \
- /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
- /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
  /usr/include/c++/11/bits/fs_path.h /usr/include/c++/11/locale \
- /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
- /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
- /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
@@ -311,11 +323,6 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
  /usr/include/c++/11/bits/locale_conv.h /usr/include/c++/11/iomanip \
  /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
- /usr/include/c++/11/istream /usr/include/c++/11/ios \
- /usr/include/c++/11/bits/basic_ios.h \
- /usr/include/c++/11/bits/basic_ios.tcc /usr/include/c++/11/ostream \
- /usr/include/c++/11/bits/ostream.tcc \
- /usr/include/c++/11/bits/istream.tcc \
  /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/codecvt \
  /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
  /usr/include/c++/11/optional /usr/include/c++/11/numeric \
@@ -328,6 +335,6 @@ src/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /home/stark/ClusterChatServer/include/model/FriendModel.hxx \
  /home/stark/ClusterChatServer/include/model/UserModel.hxx \
  /home/stark/ClusterChatServer/include/model/GroupModel.hxx \
- /home/stark/ClusterChatServer/include/muduo/base/Logging.h \
- /home/stark/ClusterChatServer/include/muduo/base/LogStream.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/base/Logging.h \
+ /home/stark/ClusterChatServer/include/thirdparty/muduo/base/LogStream.h \
  /home/stark/ClusterChatServer/include/Common.h

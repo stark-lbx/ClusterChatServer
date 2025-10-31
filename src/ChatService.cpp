@@ -6,8 +6,7 @@
 #include "FriendModel.hxx"
 #include "GroupModel.hxx"
 
-// #include "muduo/base/Logging.h"
-#include <Logging.h>
+#include "muduo/base/Logging.h"
 #include "Common.h"
 
 #include <optional>
@@ -35,6 +34,11 @@ chat::service::ChatService::ChatService()
     offlineMsgModel_    = std::make_unique<chat::model::OfflineMsgModel>();
     friendModel_        = std::make_unique<chat::model::FriendModel>();
     groupModel_         = std::make_unique<chat::model::GroupModel>();
+
+    if(redis_mq_.connect())
+        // 设置上报消息的回调
+        redis_mq_.init_notify_handler(
+            std::bind(&ChatService::handleMQSubscribeMessage,this, std::placeholders::_1, std::placeholders::_2));
 }
 
 chat::service::MsgHandler chat::service::ChatService::getHandler(int msgType)
@@ -85,6 +89,8 @@ void chat::service::ChatService::login(const muduo::net::TcpConnectionPtr & conn
                 std::lock_guard<std::mutex> lock(userConnMapMutex_);
                 userConnMap_[user->userid()] = conn;
             }
+
+            redis_mq_.subscribe(userid); // 订阅发给自己的消息
 
             // 登录成功 - 更新用户状态信息
             user->setState("online");
@@ -199,6 +205,9 @@ void chat::service::ChatService::offline(const muduo::net::TcpConnectionPtr & co
 
     if(userid.has_value())
     {
+        // 取消订阅关于自己的消息
+        redis_mq_.unsubscribe(userid.value());
+
         std::unique_ptr<chat::User> user = userModel_->query(userid.value());
         if(user != nullptr)
         {
@@ -318,6 +327,11 @@ void chat::service::ChatService::joinGroup(const muduo::net::TcpConnectionPtr & 
 void chat::service::ChatService::singleChat(const muduo::net::TcpConnectionPtr & conn, const nlohmann::json & js, const muduo::Timestamp & time)
 {
     int toid = js["to"].get<int>();
+    // if(userModel_->query(toid) == nullptr)
+    // {
+    //     // 用户不存在
+    //     return;
+    // }
 
     std::unordered_map<int, muduo::net::TcpConnectionPtr>::iterator iter;
     {
@@ -330,6 +344,15 @@ void chat::service::ChatService::singleChat(const muduo::net::TcpConnectionPtr &
             return;
         }
     }
+
+    // toid 在线，但不在同一台主机
+    auto user = userModel_->query(toid);
+    if(user->state() == "online")
+    {
+        redis_mq_.publish(toid, js.dump());
+        return;
+    }
+
     // toid 不在线、存储离线消息
     offlineMsgModel_->insert(toid, js.dump());
 }
@@ -351,7 +374,30 @@ void chat::service::ChatService::groupChat(const muduo::net::TcpConnectionPtr & 
                 continue;
             }
         }
-        // 插入时可以不被锁锁着、与连接映射表无关了
-        offlineMsgModel_->insert(id, js.dump());
+        // 其它操作可以不被锁锁着、与连接映射表无关了
+        auto user = userModel_->query(id);
+        if(user->state() == "online")
+        {
+            redis_mq_.publish(id, js.dump());
+        }
+        else 
+        {
+            offlineMsgModel_->insert(id, js.dump());
+        }
     }
+}
+
+// 从redis消息队列中获取订阅的消息
+void chat::service::ChatService::handleMQSubscribeMessage(int userid, std::string message)
+{
+    std::lock_guard<std::mutex> lock(userConnMapMutex_);
+    auto it = userConnMap_.find(userid);
+    if(it != userConnMap_.end())
+    {
+        it->second->send(message);
+        return;
+    }
+
+    // 存储该用户的离线消息 - 在获取消息的这一个瞬间，用户下线了，就得存起来
+    offlineMsgModel_->insert(userid, message);
 }

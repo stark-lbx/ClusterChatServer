@@ -16,6 +16,7 @@ target_include_directories(ChatServer PRIVATE
 target_link_directories(ChatServer PRIVATE 
     ${PROJECT_SOURCE_DIR}/libs
     ${PROJECT_SOURCE_DIR}/libs/muduo
+    ${PROJECT_SOURCE_DIR}/libs/hiredis
 )
 
 target_link_libraries(ChatServer PRIVATE 
