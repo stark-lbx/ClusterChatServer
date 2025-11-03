@@ -4,6 +4,8 @@
 
 #include <mysql/mysql.h>
 #include <cstdio>
+#include <ctime>
+
 #include <string>
 #include <queue>
 #include <mutex>
@@ -13,6 +15,7 @@
 #include <functional>
 #include <condition_variable>
 #include <chrono>
+
 
 // 对外隐藏
 namespace
@@ -79,8 +82,13 @@ public:
 
     MYSQL* connection() const{ return conn_; }
 
+    // 刷新一下连接的起始的空闲时间点
+    void refreshTime(){startTime_ = ::clock();}
+    // 获取当前连接的空闲时间点
+    clock_t getAlivetime(){return clock()-startTime_;}
 private:
     MYSQL* conn_;
+    clock_t startTime_; //记录进入空闲状态后的起始时间
 };
 }
 
@@ -114,17 +122,18 @@ public:
         static ConnectionPool cp;
         return &cp;
     }
+    
     std::shared_ptr<MySQL> getConnection()
     {
         std::unique_lock<std::mutex> lock(queueMutex_);
-        if(connectionQue_.empty())
+        while(connectionQue_.empty())
         {
-            cvConsumer_.wait_for(lock, std::chrono::milliseconds(connTimeout_));
-            if(connectionQue_.empty())
-            {
-                ::printf("获取空闲连接超时... 获取连接失败\n");
-                return nullptr;
-            }
+            if(std::cv_status::timeout == cvConsumer_.wait_for(lock, std::chrono::milliseconds(connTimeout_)))
+                if(connectionQue_.empty())
+                {
+                    ::printf("获取空闲连接超时... 获取连接失败\n");
+                    return nullptr;
+                }
         }
 
         // shared_ptr智能指针析构时，会把connection资源delete掉，相当于调用connection的析构函数，close掉连接了
@@ -133,12 +142,14 @@ public:
             [this](MySQL *pconn){
                 using db::ConnectionPool;
                 std::unique_lock<std::mutex> lock(this->queueMutex_);
+                pconn->refreshTime();
                 this->connectionQue_.push(pconn);
             }); // 删除的调用不在这里，需要加锁
         connectionQue_.pop();
         cvProducer_.notify_one(); // 通知生产者查看是否需要生产
         return ret;
     }
+
 private:
     bool loadConfigure(){
         // 数据库配置信息
@@ -173,7 +184,8 @@ private:
                 auto* p = new MySQL(); 
                 if(!p->connect(ip_, port_, username_, password_, dbname_)){
                     continue;
-                }     
+                }
+                p->refreshTime();
                 connectionQue_.push(std::move(p)); 
                 connectionCounter_.fetch_add(1);
             }
@@ -182,6 +194,32 @@ private:
         }
     }
     
+    // 运行在独立的线程中，定时扫描空闲连接
+    void scanConnectionTask()
+    {
+        for(;;)
+        {
+            // 先睡这么长时间，醒了看谁时间超了就移除
+            std::this_thread::sleep_for(std::chrono::seconds(maxIdleTime_));
+            
+            while(connectionCounter_ > initSize_)
+            {
+                std::lock_guard<std::mutex> lock(queueMutex_);
+                auto* p = connectionQue_.front();
+                if(p->getAlivetime() >= maxIdleTime_)
+                {
+                    connectionQue_.pop();
+                    delete p; // 释放连接
+                    connectionCounter_.fetch_sub(1);
+                }
+                else 
+                {
+                    break; // 队列的空闲起始时间是根据先进先出的，所以队头是空闲最久的，如果队头都空闲太短，后面指定更短
+                }
+            }
+        }
+    }
+
     ConnectionPool()
         :queueMutex_(), connectionCounter_(0), cvConsumer_(), cvProducer_()
     {
@@ -197,14 +235,19 @@ private:
             if(!p->connect(ip_, port_, username_, password_, dbname_)){
                 continue;
             } 
+            p->refreshTime();
 
             connectionQue_.push(std::move(p)); // not must to lock in ctor
             connectionCounter_.fetch_add(1);
         }
 
         // 启动一个新线程，作为连接的生产者
-        std::thread producer(std::bind(&ConnectionPool::produceConnectionTask, this));
-        producer.detach(); // 这里一定要加入后台
+        std::thread producer(std::bind(&ConnectionPool::produceConnectionTask, this));        
+        // 启动一个新的定时线程，扫描 超过maxIdleTime 时间的空闲连接，进行连接回收
+        std::thread scanner(std::bind(&ConnectionPool::scanConnectionTask, this));
+
+        producer.detach(); 
+        scanner.detach(); // 这里一定要加入后台
     }
 
     ConnectionPool(const ConnectionPool&) = delete;
