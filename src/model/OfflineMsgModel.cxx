@@ -8,10 +8,10 @@ bool chat::model::OfflineMsgModel::insert(int userid, const std::string & msg)
     char sql[1024] = {0};
     sprintf(sql, "insert into OfflineMessage values(%d, '%s')", userid, msg.c_str());
 
-    db::MySQL mysql;
-    if (mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if (mysql)
     {
-        return mysql.update(sql);
+        return mysql->update(sql);
     }
 
     return false;
@@ -22,10 +22,10 @@ bool chat::model::OfflineMsgModel::remove(int userid)
     char sql[1024] = {0};
     sprintf(sql, "delete from OfflineMessage where userid = %d", userid);
 
-    db::MySQL mysql;
-    if (mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if (mysql)
     {
-        return mysql.update(sql);
+        return mysql->update(sql);
     }
     return false;
 }
@@ -37,10 +37,10 @@ std::vector<std::string> chat::model::OfflineMsgModel::query(int userid)
     char sql[1024] = {0};
     sprintf(sql, "select message from OfflineMessage where userid = %d", userid);
 
-    db::MySQL mysql;
-    if (mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if (mysql)
     {
-        MYSQL_RES* res = mysql.query(sql);
+        MYSQL_RES* res = mysql->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row;

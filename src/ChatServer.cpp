@@ -60,7 +60,4 @@ void chat::ChatServer::onMessage(const muduo::net::TcpConnectionPtr &conn,
         // 直接捕获解决
         LOG_ERROR << e.what();
     }
-
-    
 }
-

@@ -8,10 +8,10 @@ bool chat::model::FriendModel::insert(int userid, int friendid)
     char sql[1024] = {0};
     ::sprintf(sql, "insert into Friend values(%d, %d)", userid, friendid);
 
-    chat::db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        return mysql.update(sql);
+        return mysql->update(sql);
     }
 
     return false;
@@ -60,10 +60,10 @@ std::vector<chat::User> chat::model::FriendModel::query(int userid)
 
     ::sprintf(sql, sql_format, userid, userid);
 
-    chat::db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        MYSQL_RES* res = mysql.query(sql);
+        MYSQL_RES* res = mysql->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row;

@@ -10,13 +10,13 @@ bool chat::model::UserModel::insert(User &user)
     sprintf(sql, "insert into User(username, password, state) values('%s', '%s', '%s')",
         user.username().c_str(), user.password().c_str(), user.state().c_str());
 
-    chat::db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        if(mysql.update(sql))
+        if(mysql->update(sql))
         {
             // 获取插入成功的用户数据生成的主键id
-            user.setUserid(mysql_insert_id(mysql.connection()));
+            user.setUserid(mysql_insert_id(mysql->connection()));
             return true;
         }   
     }
@@ -31,10 +31,10 @@ bool chat::model::UserModel::update(const User & user)
     sprintf(sql, "update User set username = '%s', password = '%s', state = '%s' where userid = %d",
         user.username().c_str(), user.password().c_str(), user.state().c_str(), user.userid());
 
-    chat::db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        if(mysql.update(sql))
+        if(mysql->update(sql))
         {
             return true;
         }   
@@ -48,10 +48,10 @@ std::unique_ptr<chat::User> chat::model::UserModel::query(int id)
     char sql[1024] = {0};
     ::sprintf(sql, "select * from User where userid = %d", id);
 
-    chat::db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        MYSQL_RES* res = mysql.query(sql);
+        MYSQL_RES* res = mysql->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row = ::mysql_fetch_row(res);
@@ -76,10 +76,10 @@ std::unique_ptr<chat::User> chat::model::UserModel::query(std::string name)
     char sql[1024] = {0};
     ::sprintf(sql, "select * from User where username = '%s'", name.c_str());
 
-    chat::db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        MYSQL_RES* res = mysql.query(sql);
+        MYSQL_RES* res = mysql->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row = ::mysql_fetch_row(res);
@@ -104,9 +104,9 @@ void chat::model::UserModel::offlineAll()
     char sql[1024] = {0};
     sprintf(sql, "update User set state = 'offline' where state = 'online'");
 
-    chat::db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        mysql.update(sql);
+        mysql->update(sql);
     }
 }

@@ -9,12 +9,12 @@ bool chat::model::GroupModel::create(Group & group)
     ::sprintf(sql, "insert into AllGroup(groupname, groupdesc) values('%s', '%s')", 
         group.groupname().c_str(), group.description().c_str());
 
-    db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        if(mysql.update(sql))
+        if(mysql->update(sql))
         {
-            group.setGroupid(::mysql_insert_id(mysql.connection()));
+            group.setGroupid(::mysql_insert_id(mysql->connection()));
             return true;
         }
 
@@ -27,10 +27,10 @@ bool chat::model::GroupModel::join(int userid, int groupid, const std::string & 
     char sql[1024] = {0};
     ::sprintf(sql, "insert into GroupUser(groupid, userid, grouprole) values(%d, %d, '%s')", userid, groupid, role.c_str());
 
-    db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        return mysql.update(sql);
+        return mysql->update(sql);
     }
     return false;
 }
@@ -43,10 +43,10 @@ std::vector<chat::Group> chat::model::GroupModel::query(int userid)
 
     std::vector<chat::Group> results;
 
-    db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        MYSQL_RES* res = mysql.query(sql);
+        MYSQL_RES* res = mysql->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row;
@@ -66,7 +66,7 @@ std::vector<chat::Group> chat::model::GroupModel::query(int userid)
         ::sprintf(sql, "select u.userid, u.username, u.state, g.grouprole from User u \
             inner join GroupUser g on g.userid=u.userid where g.groupid=%d", group.groupid());
 
-        MYSQL_RES* res = mysql.query(sql);
+        MYSQL_RES* res = mysql->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row;
@@ -93,10 +93,10 @@ std::vector<int> chat::model::GroupModel::query(int userid, int groupid)
 
     std::vector<int> results;
 
-    db::MySQL mysql;
-    if(mysql.connect())
+    auto mysql = db::ConnectionPool::instance()->getConnection();
+    if(mysql)
     {
-        MYSQL_RES* res = mysql.query(sql);
+        MYSQL_RES* res = mysql->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row;
