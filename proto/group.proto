@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package stark_im;
+import "base.proto";
+
+message CreatGroupReq
+{
+    string userid = 1;
+    string groupname = 2;
+    string descrition = 3;
+}
+message CreatGroupRsp
+{
+    bool success = 1;
+    int64 errcode = 2;
+    string errmsg = 3;
+    string groupid = 4;
+}
+
+
+message JoinGroupReq
+{
+    string userid = 1;
+    string groupid = 2;
+}
+message JoinGroupRsp
+{
+    bool success = 1;
+    int64 errcode = 2;
+    string errmsg = 3;
+}

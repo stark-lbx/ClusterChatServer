@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package stark_im;
+import "base.proto";
+
+//----------------------------
+// 好友列表获取请求
+message GetFriendListReq
+{
+    string userid = 1;
+}
+
+// 好友列表获取响应
+message GetFriendListRsp
+{
+    bool success = 1;
+    int64 errcode = 2;
+    string errmsg = 3;
+    repeated UserInfo friendlist = 4;
+}
+
+//----------------------------
+// 添加好友
+message FriendAddReq
+{
+    string userid = 1;      // 申请人id
+    string friendid = 2;    // 被申请人id
+}
+// 添加好友
+message FriendAddRsp
+{
+    bool success = 1;
+    int64 errcode = 2;
+    string errmsg = 3;
+}

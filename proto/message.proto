@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package stark_im;
+import "base.proto";
+
+// 获取离线消息请求
+message GetOfflineMsgReq
+{
+    string userid = 1;
+}
+
+// 获取离线消息响应
+message GetOfflineMsgRsp
+{
+    bool success = 1;
+    int64 errcode = 2;
+    string errmsg = 3;
+    repeated MessageInfo msglist = 4;
+}
+
+// 发送消息
+message MessageSendReq
+{
+    MessageInfo msginfo = 1;
+}

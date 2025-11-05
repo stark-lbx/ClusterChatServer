@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package stark_im;
+import "base.proto";
+
+//--------------------
+// 推送一条消息
+message NotifyNewMessage
+{
+    MessageInfo msginfo = 1;
+}

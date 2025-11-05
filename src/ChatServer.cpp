@@ -53,7 +53,7 @@ void chat::ChatServer::onMessage(const muduo::net::TcpConnectionPtr &conn,
         nlohmann::json js = nlohmann::json::parse(buf); 
         // 通过 js["msg_type"] 调用对应的服务 -> handler(conn, js, time)
         // 完全解耦网络模块的代码和业务模块的代码
-        int msgType = js["msgType"].get<int>();
+        int msgType = js["type"].get<int>();
         auto&& msgHandler = chat::service::ChatService::instance()->getHandler(msgType);
         msgHandler(conn, js, time);
     } catch(std::exception& e){

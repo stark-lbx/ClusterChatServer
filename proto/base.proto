@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package stark_im;
+
+// 用户基本信息
+message UserInfo
+{
+    string userid = 1;
+    string username = 2;
+    string password = 3;
+    string state = 4;
+}
+
+
+// 消息信息
+message MessageInfo
+{
+    string fromid = 1;
+    string toid = 2;
+    string content = 3;
+}
+
+// // 群组信息
+// message GroupInfo
+// {
+//
+// }

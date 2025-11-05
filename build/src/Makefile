@@ -298,6 +298,150 @@ model/UserModel.cxx.s:
 	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.s
 .PHONY : model/UserModel.cxx.s
 
+proto/base.pb.o: proto/base.pb.cc.o
+.PHONY : proto/base.pb.o
+
+# target to build an object file
+proto/base.pb.cc.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.o
+.PHONY : proto/base.pb.cc.o
+
+proto/base.pb.i: proto/base.pb.cc.i
+.PHONY : proto/base.pb.i
+
+# target to preprocess a source file
+proto/base.pb.cc.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.i
+.PHONY : proto/base.pb.cc.i
+
+proto/base.pb.s: proto/base.pb.cc.s
+.PHONY : proto/base.pb.s
+
+# target to generate assembly for a file
+proto/base.pb.cc.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.s
+.PHONY : proto/base.pb.cc.s
+
+proto/friend.pb.o: proto/friend.pb.cc.o
+.PHONY : proto/friend.pb.o
+
+# target to build an object file
+proto/friend.pb.cc.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o
+.PHONY : proto/friend.pb.cc.o
+
+proto/friend.pb.i: proto/friend.pb.cc.i
+.PHONY : proto/friend.pb.i
+
+# target to preprocess a source file
+proto/friend.pb.cc.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.i
+.PHONY : proto/friend.pb.cc.i
+
+proto/friend.pb.s: proto/friend.pb.cc.s
+.PHONY : proto/friend.pb.s
+
+# target to generate assembly for a file
+proto/friend.pb.cc.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.s
+.PHONY : proto/friend.pb.cc.s
+
+proto/group.pb.o: proto/group.pb.cc.o
+.PHONY : proto/group.pb.o
+
+# target to build an object file
+proto/group.pb.cc.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.o
+.PHONY : proto/group.pb.cc.o
+
+proto/group.pb.i: proto/group.pb.cc.i
+.PHONY : proto/group.pb.i
+
+# target to preprocess a source file
+proto/group.pb.cc.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.i
+.PHONY : proto/group.pb.cc.i
+
+proto/group.pb.s: proto/group.pb.cc.s
+.PHONY : proto/group.pb.s
+
+# target to generate assembly for a file
+proto/group.pb.cc.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.s
+.PHONY : proto/group.pb.cc.s
+
+proto/message.pb.o: proto/message.pb.cc.o
+.PHONY : proto/message.pb.o
+
+# target to build an object file
+proto/message.pb.cc.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.o
+.PHONY : proto/message.pb.cc.o
+
+proto/message.pb.i: proto/message.pb.cc.i
+.PHONY : proto/message.pb.i
+
+# target to preprocess a source file
+proto/message.pb.cc.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.i
+.PHONY : proto/message.pb.cc.i
+
+proto/message.pb.s: proto/message.pb.cc.s
+.PHONY : proto/message.pb.s
+
+# target to generate assembly for a file
+proto/message.pb.cc.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.s
+.PHONY : proto/message.pb.cc.s
+
+proto/notify.pb.o: proto/notify.pb.cc.o
+.PHONY : proto/notify.pb.o
+
+# target to build an object file
+proto/notify.pb.cc.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o
+.PHONY : proto/notify.pb.cc.o
+
+proto/notify.pb.i: proto/notify.pb.cc.i
+.PHONY : proto/notify.pb.i
+
+# target to preprocess a source file
+proto/notify.pb.cc.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.i
+.PHONY : proto/notify.pb.cc.i
+
+proto/notify.pb.s: proto/notify.pb.cc.s
+.PHONY : proto/notify.pb.s
+
+# target to generate assembly for a file
+proto/notify.pb.cc.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.s
+.PHONY : proto/notify.pb.cc.s
+
+proto/user.pb.o: proto/user.pb.cc.o
+.PHONY : proto/user.pb.o
+
+# target to build an object file
+proto/user.pb.cc.o:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.o
+.PHONY : proto/user.pb.cc.o
+
+proto/user.pb.i: proto/user.pb.cc.i
+.PHONY : proto/user.pb.i
+
+# target to preprocess a source file
+proto/user.pb.cc.i:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.i
+.PHONY : proto/user.pb.cc.i
+
+proto/user.pb.s: proto/user.pb.cc.s
+.PHONY : proto/user.pb.s
+
+# target to generate assembly for a file
+proto/user.pb.cc.s:
+	cd /home/stark/ClusterChatServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ChatServer.dir/build.make src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.s
+.PHONY : proto/user.pb.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -328,6 +472,24 @@ help:
 	@echo "... model/UserModel.o"
 	@echo "... model/UserModel.i"
 	@echo "... model/UserModel.s"
+	@echo "... proto/base.pb.o"
+	@echo "... proto/base.pb.i"
+	@echo "... proto/base.pb.s"
+	@echo "... proto/friend.pb.o"
+	@echo "... proto/friend.pb.i"
+	@echo "... proto/friend.pb.s"
+	@echo "... proto/group.pb.o"
+	@echo "... proto/group.pb.i"
+	@echo "... proto/group.pb.s"
+	@echo "... proto/message.pb.o"
+	@echo "... proto/message.pb.i"
+	@echo "... proto/message.pb.s"
+	@echo "... proto/notify.pb.o"
+	@echo "... proto/notify.pb.i"
+	@echo "... proto/notify.pb.s"
+	@echo "... proto/user.pb.o"
+	@echo "... proto/user.pb.i"
+	@echo "... proto/user.pb.s"
 .PHONY : help
 
 

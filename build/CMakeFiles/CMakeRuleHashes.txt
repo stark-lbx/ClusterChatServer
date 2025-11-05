@@ -1,0 +1,7 @@
+# Hashes of file build rules.
+bc75199cd59942fd85447de1a0562bb1 ../src/proto/base.pb.cc
+1a8a0bcb20b5483286177bc567004556 ../src/proto/friend.pb.cc
+ced620d907e5f2747d91fe8e235bd3dc ../src/proto/group.pb.cc
+fdeac38b9e3c990a0f68ddd72bf9eb79 ../src/proto/message.pb.cc
+40c22fe2d77989eb0c212dadc22e771f ../src/proto/notify.pb.cc
+2b34f9558b57d10d2c380de143fc0731 ../src/proto/user.pb.cc

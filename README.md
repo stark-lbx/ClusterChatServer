@@ -162,219 +162,6 @@ create table OfflineMessage(
 <!-- 客户端：MVC: Model - View - Control -->.
 
 
-# 项目结构（单机版本）
-├── CMakeLists.txt
-├── README.md
-├── bin
-│   ├── ChatServer
-│   └── ClientRequest.json
-├── build
-│   ├── CMakeCache.txt
-│   ├── CMakeFiles
-│   │   ├── 3.22.1
-│   │   │   ├── CMakeCCompiler.cmake
-│   │   │   ├── CMakeCXXCompiler.cmake
-│   │   │   ├── CMakeDetermineCompilerABI_C.bin
-│   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
-│   │   │   ├── CMakeSystem.cmake
-│   │   │   ├── CompilerIdC
-│   │   │   │   ├── CMakeCCompilerId.c
-│   │   │   │   ├── a.out
-│   │   │   │   └── tmp
-│   │   │   └── CompilerIdCXX
-│   │   │       ├── CMakeCXXCompilerId.cpp
-│   │   │       ├── a.out
-│   │   │       └── tmp
-│   │   ├── CMakeDirectoryInformation.cmake
-│   │   ├── CMakeOutput.log
-│   │   ├── CMakeTmp
-│   │   ├── Makefile.cmake
-│   │   ├── Makefile2
-│   │   ├── TargetDirectories.txt
-│   │   ├── cmake.check_cache
-│   │   └── progress.marks
-│   ├── Makefile
-│   ├── cmake_install.cmake
-│   └── src
-│       ├── CMakeFiles
-│       │   ├── CMakeDirectoryInformation.cmake
-│       │   ├── ChatServer.dir
-│       │   │   ├── Application.cc.o
-│       │   │   ├── Application.cc.o.d
-│       │   │   ├── ChatServer.cpp.o
-│       │   │   ├── ChatServer.cpp.o.d
-│       │   │   ├── ChatService.cpp.o
-│       │   │   ├── ChatService.cpp.o.d
-│       │   │   ├── DependInfo.cmake
-│       │   │   ├── FriendModel.cxx.o
-│       │   │   ├── FriendModel.cxx.o.d
-│       │   │   ├── OfflineMsgModel.cc.o
-│       │   │   ├── OfflineMsgModel.cc.o.d
-│       │   │   ├── OfflineMsgModel.cxx.o
-│       │   │   ├── OfflineMsgModel.cxx.o.d
-│       │   │   ├── UserModel.cc.o
-│       │   │   ├── UserModel.cc.o.d
-│       │   │   ├── UserModel.cxx.o
-│       │   │   ├── UserModel.cxx.o.d
-│       │   │   ├── build.make
-│       │   │   ├── cmake_clean.cmake
-│       │   │   ├── compiler_depend.internal
-│       │   │   ├── compiler_depend.make
-│       │   │   ├── compiler_depend.ts
-│       │   │   ├── depend.make
-│       │   │   ├── flags.make
-│       │   │   ├── link.txt
-│       │   │   ├── model
-│       │   │   │   ├── FriendModel.cxx.o
-│       │   │   │   ├── FriendModel.cxx.o.d
-│       │   │   │   ├── GroupModel.cxx.o
-│       │   │   │   ├── GroupModel.cxx.o.d
-│       │   │   │   ├── OfflineMsgModel.cxx.o
-│       │   │   │   ├── OfflineMsgModel.cxx.o.d
-│       │   │   │   ├── UserModel.cxx.o
-│       │   │   │   └── UserModel.cxx.o.d
-│       │   │   └── progress.make
-│       │   └── progress.marks
-│       ├── Makefile
-│       └── cmake_install.cmake
-├── example
-│   ├── cmake
-│   │   └── CMakeLists.txt
-│   ├── json
-│   │   ├── example
-│   │   │   ├── TestJson.cpp
-│   │   │   └── test
-│   │   └── json.hpp
-│   └── muduo
-│       ├── CMakeLists.txt
-│       ├── build
-│       │   ├── CMakeCache.txt
-│       │   ├── CMakeFiles
-│       │   │   ├── 3.22.1
-│       │   │   │   ├── CMakeCCompiler.cmake
-│       │   │   │   ├── CMakeCXXCompiler.cmake
-│       │   │   │   ├── CMakeDetermineCompilerABI_C.bin
-│       │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
-│       │   │   │   ├── CMakeSystem.cmake
-│       │   │   │   ├── CompilerIdC
-│       │   │   │   │   ├── CMakeCCompilerId.c
-│       │   │   │   │   ├── a.out
-│       │   │   │   │   └── tmp
-│       │   │   │   └── CompilerIdCXX
-│       │   │   │       ├── CMakeCXXCompilerId.cpp
-│       │   │   │       ├── a.out
-│       │   │   │       └── tmp
-│       │   │   ├── CMakeDirectoryInformation.cmake
-│       │   │   ├── CMakeOutput.log
-│       │   │   ├── CMakeTmp
-│       │   │   ├── Makefile.cmake
-│       │   │   ├── Makefile2
-│       │   │   ├── TargetDirectories.txt
-│       │   │   ├── cmake.check_cache
-│       │   │   ├── progress.marks
-│       │   │   └── server.dir
-│       │   │       ├── DependInfo.cmake
-│       │   │       ├── build.make
-│       │   │       ├── cmake_clean.cmake
-│       │   │       ├── compiler_depend.make
-│       │   │       ├── compiler_depend.ts
-│       │   │       ├── depend.make
-│       │   │       ├── flags.make
-│       │   │       ├── link.txt
-│       │   │       └── progress.make
-│       │   ├── Makefile
-│       │   └── cmake_install.cmake
-│       ├── mserver
-│       └── mserver.cc
-├── include
-│   ├── ChatServer.hpp
-│   ├── ChatService.hpp
-│   ├── Common.h
-│   ├── db
-│   │   └── mysql.hpp
-│   ├── json
-│   │   └── json.hpp
-│   ├── model
-│   │   ├── FriendModel.hxx
-│   │   ├── GroupModel.hxx
-│   │   ├── OfflineMsgModel.hxx
-│   │   └── UserModel.hxx
-│   └── muduo
-│       ├── base
-│       │   ├── AsyncLogging.h
-│       │   ├── Atomic.h
-│       │   ├── BlockingQueue.h
-│       │   ├── BoundedBlockingQueue.h
-│       │   ├── Condition.h
-│       │   ├── CountDownLatch.h
-│       │   ├── CurrentThread.h
-│       │   ├── Date.h
-│       │   ├── Exception.h
-│       │   ├── FileUtil.h
-│       │   ├── GzipFile.h
-│       │   ├── LogFile.h
-│       │   ├── LogStream.h
-│       │   ├── Logging.h
-│       │   ├── Mutex.h
-│       │   ├── ProcessInfo.h
-│       │   ├── Singleton.h
-│       │   ├── StringPiece.h
-│       │   ├── Thread.h
-│       │   ├── ThreadLocal.h
-│       │   ├── ThreadLocalSingleton.h
-│       │   ├── ThreadPool.h
-│       │   ├── TimeZone.h
-│       │   ├── Timestamp.h
-│       │   ├── Types.h
-│       │   ├── WeakCallback.h
-│       │   ├── copyable.h
-│       │   └── noncopyable.h
-│       └── net
-│           ├── Buffer.h
-│           ├── Callbacks.h
-│           ├── Channel.h
-│           ├── Endian.h
-│           ├── EventLoop.h
-│           ├── EventLoopThread.h
-│           ├── EventLoopThreadPool.h
-│           ├── InetAddress.h
-│           ├── TcpClient.h
-│           ├── TcpConnection.h
-│           ├── TcpServer.h
-│           ├── TimerId.h
-│           ├── http
-│           │   ├── HttpContext.h
-│           │   ├── HttpRequest.h
-│           │   ├── HttpResponse.h
-│           │   └── HttpServer.h
-│           └── inspect
-│               └── Inspector.h
-├── libs
-│   ├── libmysqlclient.a
-│   ├── libmysqlclient.so
-│   ├── libpthread.a
-│   ├── libpthread.so.0
-│   └── muduo
-│       ├── libmuduo_base.a
-│       ├── libmuduo_http.a
-│       ├── libmuduo_inspect.a
-│       └── libmuduo_net.a
-└── src
-    ├── Application.cc
-    ├── CMakeLists.txt
-    ├── ChatServer.cpp
-    ├── ChatService.cpp
-    └── model
-        ├── FriendModel.cxx
-        ├── GroupModel.cxx
-        ├── OfflineMsgModel.cxx
-        └── UserModel.cxx
-
-40 directories, 166 files
-
-
----  
-
 # nginx的安装
 ```shell
 $ sudo apt install curl gnupg2 ca-certificates lsb-release ubuntu-keyring 
@@ -411,3 +198,18 @@ stream {
 }
 
 sudo systemctl restart nginx
+
+
+
+
+
+
+
+# 消息协议优化
+整体结构采用json格式：
+```
+{
+    "type": xx,
+    "body": "protobuf data"
+}
+```

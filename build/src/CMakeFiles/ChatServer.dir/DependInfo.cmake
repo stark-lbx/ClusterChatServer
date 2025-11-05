@@ -15,6 +15,12 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/stark/ClusterChatServer/src/model/GroupModel.cxx" "src/CMakeFiles/ChatServer.dir/model/GroupModel.cxx.o" "gcc" "src/CMakeFiles/ChatServer.dir/model/GroupModel.cxx.o.d"
   "/home/stark/ClusterChatServer/src/model/OfflineMsgModel.cxx" "src/CMakeFiles/ChatServer.dir/model/OfflineMsgModel.cxx.o" "gcc" "src/CMakeFiles/ChatServer.dir/model/OfflineMsgModel.cxx.o.d"
   "/home/stark/ClusterChatServer/src/model/UserModel.cxx" "src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o" "gcc" "src/CMakeFiles/ChatServer.dir/model/UserModel.cxx.o.d"
+  "/home/stark/ClusterChatServer/src/proto/base.pb.cc" "src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.o" "gcc" "src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.o.d"
+  "/home/stark/ClusterChatServer/src/proto/friend.pb.cc" "src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o" "gcc" "src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o.d"
+  "/home/stark/ClusterChatServer/src/proto/group.pb.cc" "src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.o" "gcc" "src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.o.d"
+  "/home/stark/ClusterChatServer/src/proto/message.pb.cc" "src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.o" "gcc" "src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.o.d"
+  "/home/stark/ClusterChatServer/src/proto/notify.pb.cc" "src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o" "gcc" "src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o.d"
+  "/home/stark/ClusterChatServer/src/proto/user.pb.cc" "src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.o" "gcc" "src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.o.d"
   )
 
 # Targets to which this target links.

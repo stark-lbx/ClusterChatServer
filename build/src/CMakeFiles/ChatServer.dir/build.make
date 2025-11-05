@@ -167,6 +167,90 @@ src/CMakeFiles/ChatServer.dir/Application.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ChatServer.dir/Application.cc.s"
 	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stark/ClusterChatServer/src/Application.cc -o CMakeFiles/ChatServer.dir/Application.cc.s
 
+src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.o: src/CMakeFiles/ChatServer.dir/flags.make
+src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.o: ../src/proto/base.pb.cc
+src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.o: src/CMakeFiles/ChatServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/stark/ClusterChatServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.o"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.o -MF CMakeFiles/ChatServer.dir/proto/base.pb.cc.o.d -o CMakeFiles/ChatServer.dir/proto/base.pb.cc.o -c /home/stark/ClusterChatServer/src/proto/base.pb.cc
+
+src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ChatServer.dir/proto/base.pb.cc.i"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stark/ClusterChatServer/src/proto/base.pb.cc > CMakeFiles/ChatServer.dir/proto/base.pb.cc.i
+
+src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ChatServer.dir/proto/base.pb.cc.s"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stark/ClusterChatServer/src/proto/base.pb.cc -o CMakeFiles/ChatServer.dir/proto/base.pb.cc.s
+
+src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o: src/CMakeFiles/ChatServer.dir/flags.make
+src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o: ../src/proto/friend.pb.cc
+src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o: src/CMakeFiles/ChatServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/stark/ClusterChatServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o -MF CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o.d -o CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o -c /home/stark/ClusterChatServer/src/proto/friend.pb.cc
+
+src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ChatServer.dir/proto/friend.pb.cc.i"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stark/ClusterChatServer/src/proto/friend.pb.cc > CMakeFiles/ChatServer.dir/proto/friend.pb.cc.i
+
+src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ChatServer.dir/proto/friend.pb.cc.s"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stark/ClusterChatServer/src/proto/friend.pb.cc -o CMakeFiles/ChatServer.dir/proto/friend.pb.cc.s
+
+src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.o: src/CMakeFiles/ChatServer.dir/flags.make
+src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.o: ../src/proto/message.pb.cc
+src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.o: src/CMakeFiles/ChatServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/stark/ClusterChatServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.o"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.o -MF CMakeFiles/ChatServer.dir/proto/message.pb.cc.o.d -o CMakeFiles/ChatServer.dir/proto/message.pb.cc.o -c /home/stark/ClusterChatServer/src/proto/message.pb.cc
+
+src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ChatServer.dir/proto/message.pb.cc.i"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stark/ClusterChatServer/src/proto/message.pb.cc > CMakeFiles/ChatServer.dir/proto/message.pb.cc.i
+
+src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ChatServer.dir/proto/message.pb.cc.s"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stark/ClusterChatServer/src/proto/message.pb.cc -o CMakeFiles/ChatServer.dir/proto/message.pb.cc.s
+
+src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o: src/CMakeFiles/ChatServer.dir/flags.make
+src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o: ../src/proto/notify.pb.cc
+src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o: src/CMakeFiles/ChatServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/stark/ClusterChatServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o -MF CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o.d -o CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o -c /home/stark/ClusterChatServer/src/proto/notify.pb.cc
+
+src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ChatServer.dir/proto/notify.pb.cc.i"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stark/ClusterChatServer/src/proto/notify.pb.cc > CMakeFiles/ChatServer.dir/proto/notify.pb.cc.i
+
+src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ChatServer.dir/proto/notify.pb.cc.s"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stark/ClusterChatServer/src/proto/notify.pb.cc -o CMakeFiles/ChatServer.dir/proto/notify.pb.cc.s
+
+src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.o: src/CMakeFiles/ChatServer.dir/flags.make
+src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.o: ../src/proto/user.pb.cc
+src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.o: src/CMakeFiles/ChatServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/stark/ClusterChatServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.o"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.o -MF CMakeFiles/ChatServer.dir/proto/user.pb.cc.o.d -o CMakeFiles/ChatServer.dir/proto/user.pb.cc.o -c /home/stark/ClusterChatServer/src/proto/user.pb.cc
+
+src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ChatServer.dir/proto/user.pb.cc.i"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stark/ClusterChatServer/src/proto/user.pb.cc > CMakeFiles/ChatServer.dir/proto/user.pb.cc.i
+
+src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ChatServer.dir/proto/user.pb.cc.s"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stark/ClusterChatServer/src/proto/user.pb.cc -o CMakeFiles/ChatServer.dir/proto/user.pb.cc.s
+
+src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.o: src/CMakeFiles/ChatServer.dir/flags.make
+src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.o: ../src/proto/group.pb.cc
+src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.o: src/CMakeFiles/ChatServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/stark/ClusterChatServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.o"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.o -MF CMakeFiles/ChatServer.dir/proto/group.pb.cc.o.d -o CMakeFiles/ChatServer.dir/proto/group.pb.cc.o -c /home/stark/ClusterChatServer/src/proto/group.pb.cc
+
+src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ChatServer.dir/proto/group.pb.cc.i"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stark/ClusterChatServer/src/proto/group.pb.cc > CMakeFiles/ChatServer.dir/proto/group.pb.cc.i
+
+src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ChatServer.dir/proto/group.pb.cc.s"
+	cd /home/stark/ClusterChatServer/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stark/ClusterChatServer/src/proto/group.pb.cc -o CMakeFiles/ChatServer.dir/proto/group.pb.cc.s
+
 # Object files for target ChatServer
 ChatServer_OBJECTS = \
 "CMakeFiles/ChatServer.dir/model/UserModel.cxx.o" \
@@ -175,7 +259,13 @@ ChatServer_OBJECTS = \
 "CMakeFiles/ChatServer.dir/model/GroupModel.cxx.o" \
 "CMakeFiles/ChatServer.dir/ChatService.cpp.o" \
 "CMakeFiles/ChatServer.dir/ChatServer.cpp.o" \
-"CMakeFiles/ChatServer.dir/Application.cc.o"
+"CMakeFiles/ChatServer.dir/Application.cc.o" \
+"CMakeFiles/ChatServer.dir/proto/base.pb.cc.o" \
+"CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o" \
+"CMakeFiles/ChatServer.dir/proto/message.pb.cc.o" \
+"CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o" \
+"CMakeFiles/ChatServer.dir/proto/user.pb.cc.o" \
+"CMakeFiles/ChatServer.dir/proto/group.pb.cc.o"
 
 # External object files for target ChatServer
 ChatServer_EXTERNAL_OBJECTS =
@@ -187,9 +277,15 @@ ChatServer_EXTERNAL_OBJECTS =
 ../bin/ChatServer: src/CMakeFiles/ChatServer.dir/ChatService.cpp.o
 ../bin/ChatServer: src/CMakeFiles/ChatServer.dir/ChatServer.cpp.o
 ../bin/ChatServer: src/CMakeFiles/ChatServer.dir/Application.cc.o
+../bin/ChatServer: src/CMakeFiles/ChatServer.dir/proto/base.pb.cc.o
+../bin/ChatServer: src/CMakeFiles/ChatServer.dir/proto/friend.pb.cc.o
+../bin/ChatServer: src/CMakeFiles/ChatServer.dir/proto/message.pb.cc.o
+../bin/ChatServer: src/CMakeFiles/ChatServer.dir/proto/notify.pb.cc.o
+../bin/ChatServer: src/CMakeFiles/ChatServer.dir/proto/user.pb.cc.o
+../bin/ChatServer: src/CMakeFiles/ChatServer.dir/proto/group.pb.cc.o
 ../bin/ChatServer: src/CMakeFiles/ChatServer.dir/build.make
 ../bin/ChatServer: src/CMakeFiles/ChatServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/stark/ClusterChatServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable ../../bin/ChatServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/stark/ClusterChatServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable ../../bin/ChatServer"
 	cd /home/stark/ClusterChatServer/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ChatServer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

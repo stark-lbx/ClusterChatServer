@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/stark/ClusterChatServer/include -I/home/stark/ClusterChatServer/include/thirdparty -I/home/stark/ClusterChatServer/include/model
+CXX_INCLUDES = -I/home/stark/ClusterChatServer/include -I/home/stark/ClusterChatServer/include/thirdparty -I/home/stark/ClusterChatServer/include/model -I/home/stark/ClusterChatServer/src/proto
 
-CXX_FLAGS = -g
+CXX_FLAGS = -std=gnu++17
 

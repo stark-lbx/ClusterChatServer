@@ -51,12 +51,13 @@ public:
         if(p != nullptr)
         {
             // 设置中文信息(C/C++代码默认的编码是ASCII码、如果不设置，从mysql拉下来的中文显示'?')
-            ::mysql_query(conn_, "set names gbk");
             ::puts("[db::mysql::connect] success!");
+            ::mysql_query(conn_, "set names gbk");
         }
         else 
         {
             ::puts("[db::mysql::connect] failed!");
+            ::printf("\t[%s:%d - %s:%s - %s] %p\n",serverip.c_str(), serverport, username.c_str(), password.c_str(), dbname.c_str(), conn_);
         }
         return p != nullptr;
     }
@@ -129,11 +130,10 @@ public:
         while(connectionQue_.empty())
         {
             if(std::cv_status::timeout == cvConsumer_.wait_for(lock, std::chrono::milliseconds(connTimeout_)))
-                if(connectionQue_.empty())
-                {
-                    ::printf("获取空闲连接超时... 获取连接失败\n");
-                    return nullptr;
-                }
+            {
+                ::printf("获取空闲连接超时... 获取连接失败\n");
+                return nullptr;
+            }
         }
 
         // shared_ptr智能指针析构时，会把connection资源delete掉，相当于调用connection的析构函数，close掉连接了
@@ -243,10 +243,10 @@ private:
 
         // 启动一个新线程，作为连接的生产者
         std::thread producer(std::bind(&ConnectionPool::produceConnectionTask, this));        
+        producer.detach(); 
+
         // 启动一个新的定时线程，扫描 超过maxIdleTime 时间的空闲连接，进行连接回收
         std::thread scanner(std::bind(&ConnectionPool::scanConnectionTask, this));
-
-        producer.detach(); 
         scanner.detach(); // 这里一定要加入后台
     }
 

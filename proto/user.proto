@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package stark_im;
+import "base.proto";
+
+//------------------
+// 用户注册请求
+message UserRegisterReq
+{
+    string username = 1;
+    string password = 2;
+}
+
+// 用户注册响应
+message UserRegisterRsp
+{
+    bool success = 1;
+    int64 errcode = 2;
+    string errmsg = 3;
+    string userid = 4;
+}
+
+//-------------------
+// 用户登录请求
+message UserLoginReq
+{
+    string userid = 1;
+    string password = 2;
+}
+
+// 用户登录响应
+message UserLoginRsp
+{
+    bool success = 1;
+    int64 errcode = 2;
+    string errmsg = 3;
+}
+
+//------------------
+// 用户离线请求
+message UserLogoutReq
+{
+    string userid = 1;
+}
+
+//-----------------------
+// 用户获取个人信息请求
+message GetUserInfoReq
+{
+    string userid = 1;
+}
+
+// 用户获取个人信息响应
+message GetUserInfoRsp
+{
+    bool success = 1;
+    int64 errcode = 2;
+    string errmsg = 3;
+
+    string userid = 4;
+    string username = 5;
+    string state = 6;
+}
